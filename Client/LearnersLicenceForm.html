@@ -7,7 +7,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="sample.css">
+
 
 
 </head>
@@ -29,7 +29,7 @@
 						<div class="row">
 							<div class="form-group">
 								<label>Name</label>
-								<input type="text" name="name" placeholder="Enter Name Here.." class="form-control" required="">
+								<input type="text" name="name" placeholder="Enter Name Here.." class="form-control" required="" pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$">
 							</div>
 							
 						</div>	
@@ -43,7 +43,7 @@
 						<div class="row">
 							<div class="form-group">
 								<label>Dob</label>
-								<input type="date" name="dob" placeholder="Enter date Here.." rows="3" class="form-control" min="31-12-2000" required="">
+								<input type="date" name="dob" placeholder="Enter date Here.." rows="3" class="form-control" max="2006-12-31" required="">
 							</div>	
 						</div>
 
