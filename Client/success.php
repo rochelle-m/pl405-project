@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 <html>
 <head>
-<title>Home Page</title>
+<title>Successful</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link rel="stylesheet" type="text/css" href="style.css">
@@ -25,12 +25,17 @@
 
 if (isset($_POST['submit'])) {
 	        $name = $_POST['name'];
+			$aadharnumber = $_POST['aadharnumber'];
 
-        echo "welcome $name registretion is ";
+        echo "welcome $name registretion is successful!!";
+		 echo "  aadharnumber is  $aadharnumber  ";
 }
-echo "successful!!";
+echo "";
 ?>
+  <h4> check your message for status... </h4>
   
+ 
+		
    
 </div>
    
@@ -38,16 +43,6 @@ echo "successful!!";
 </html>
 
 	   
-=======
 
-<?php
 
-if (isset($_POST['submit'])) {
-       
-        $dob = $_POST['dob'];
 
-        echo "$dob";
-}
-echo "successful!!";
-?>
->>>>>>> 4860b0d3feed38e2513236ffb4cd1cc52277ad5f
