@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
 <title>Home Page</title>
@@ -37,3 +38,16 @@ echo "successful!!";
 </html>
 
 	   
+=======
+
+<?php
+
+if (isset($_POST['submit'])) {
+       
+        $dob = $_POST['dob'];
+
+        echo "$dob";
+}
+echo "successful!!";
+?>
+>>>>>>> 4860b0d3feed38e2513236ffb4cd1cc52277ad5f

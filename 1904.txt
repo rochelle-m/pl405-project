@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 welcome to the project.
+=======
+welcome to the project.
+>>>>>>> 4860b0d3feed38e2513236ffb4cd1cc52277ad5f
