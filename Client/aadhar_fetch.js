@@ -1,9 +1,7 @@
 async function checkAadhar(aadharCardNumber) {
-  var aadharnumber = document.getElementById("aadharnumber");
   var _name = document.getElementById("name");
   var _address = document.getElementById("address");
   var _dob = document.getElementById("dob");
-  // var _gender = document.getElementById("gender");
   var _gender = document.getElementsByName("gender");
   var _phone = document.getElementById("phone");
   if (aadharCardNumber.length == 12) {
@@ -18,6 +16,8 @@ async function checkAadhar(aadharCardNumber) {
     _address.value = person.address + " - " + person.pincode;
 
     _phone.value = person.contact;
+
+    _dob.valueAsDate = new Date(person.dob);
 
     // * alternately, document.getElementById(person.gender.toLowerCase()).checked = true;
 
