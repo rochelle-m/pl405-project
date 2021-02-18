@@ -1,33 +1,32 @@
 async function checkAadhar(aadharCardNumber) {
-  var aadharnumber = document.getElementById("aadharnumber");
-  var name = document.getElementById("name");
+  var _name = document.getElementById("name");
   var _address = document.getElementById("address");
   var _dob = document.getElementById("dob");
-  var male = document.getElementById("male");
-  var female = document.getElementById("female");
-  var other = document.getElementById("other");
-  var phone = document.getElementById("phone");
+  var _gender = document.getElementsByName("gender");
+  var _phone = document.getElementById("phone");
   if (aadharCardNumber.length == 12) {
     console.log(aadharCardNumber);
-    const res = await fetch(`http://127.0.0.1:5000/find/${aadharCardNumber}/`);
+    const res = await fetch(`http://127.0.0.1:8001/find/${aadharCardNumber}/`);
     const person = await res.json();
 
-    const { first_name, last_name, middle_name } = person;
-    const { address, pincode, dob, gender, contact } = person;
+    const { first_name, middle_name, last_name } = person;
+    _name.value = first_name + " " + middle_name + " " + last_name;
+    _name.disabled = true;
 
-    name.value = first_name + " " + middle_name + " " + last_name;
-    name.disabled = true;
+    _address.value = person.address + " - " + person.pincode;
 
-    _address.value = address + "\n" + pincode;
-    phone.value = contact;
+    _phone.value = person.contact;
 
-    let __date = new Date(dob);
+    _dob.valueAsDate = new Date(person.dob);
+    _dob.disabled = true;
 
-    var currentDate = __date.toISOString().slice(0, 10);
-    var currentTime = __date.getHours() + ":" + __date.getMinutes();
-    console.log(currentDate);
-    _dob.value = __date;
+    // * alternately, document.getElementById(person.gender.toLowerCase()).checked = true;
 
-    document.getElementById(gender.toLowerCase()).checked = true;
+    for (var i = 0; i < _gender.length; i++) {
+      if (_gender[i].getAttribute("value") == person.gender.toLowerCase()) {
+        _gender[i].checked = true;
+      }
+      _gender[i].disabled = true;
+    }
   }
 }
