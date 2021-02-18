@@ -18,6 +18,7 @@ async function checkAadhar(aadharCardNumber) {
     _phone.value = person.contact;
 
     _dob.valueAsDate = new Date(person.dob);
+    _dob.disabled = true;
 
     // * alternately, document.getElementById(person.gender.toLowerCase()).checked = true;
 
@@ -25,6 +26,7 @@ async function checkAadhar(aadharCardNumber) {
       if (_gender[i].getAttribute("value") == person.gender.toLowerCase()) {
         _gender[i].checked = true;
       }
+      _gender[i].disabled = true;
     }
   }
 }
