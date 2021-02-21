@@ -65,9 +65,9 @@
                                         type="email"
                                         id="email"
                                         name="email"
-                                        placeholder="Enter Name Here.."
+                                        placeholder="Enter Email Here.."
                                         class="form-control"
-                                        required=""
+                                        required
                                     />
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                     <label>Vehicle Type</label><br />
                                     <input
                                         type="checkbox"
-                                        name="LMV"
+                                        name="LicenseType"                                        
                                         value="LMV"
                                     />
                                     <label for="lmv">LMV</label>
@@ -157,7 +157,7 @@
 
                                     <input
                                         type="checkbox"
-                                        name="MCWG"
+                                        name="LicenseType"
                                         value="MCWG"
                                     />
                                     <label for="MCWG">MCWG</label>
@@ -165,7 +165,7 @@
 
                                     <input
                                         type="checkbox"
-                                        name="MCWOG"
+                                        name="LicenseType"
                                         value="MCWOG"
                                     />
                                     <label for="MCWOG">MCWOG</label>
@@ -173,7 +173,7 @@
 
                                     <input
                                         type="checkbox"
-                                        name="HPGMV"
+                                        name="LicenseType"
                                         value="HPMV"
                                     />
                                     <label for="HPMV">HPMV</label>
@@ -181,7 +181,7 @@
 
                                     <input
                                         type="checkbox"
-                                        name="HPGMV"
+                                        name="LicenseType"
                                         value="HPGMV"
                                     />
                                     <label for="HPGMV">HPGMV</label>
@@ -241,51 +241,53 @@
                 var _dob = document.getElementById("dob");
                 var _gender = document.getElementsByName("gender");
                 var _phone = document.getElementById("phone");
+                var submitBtn = document.getElementById("btn-submit")
                 if (aadharCardNumber.length == 12) {
-                    console.log(aadharCardNumber);
                     const res = await fetch(
                         `http://127.0.0.1:8001/find/${aadharCardNumber}/`
                     );
+                    
                     const person = await res.json();
+                   
+                    if(!("error" in person)) {
+                        submitBtn.disabled = false
+                        const { first_name, middle_name, last_name } = person;
+                        _name.value =
+                            first_name + " " + middle_name + " " + last_name;
+                        _name.disabled = true;
 
-                    const { first_name, middle_name, last_name } = person;
-                    _name.value =
-                        first_name + " " + middle_name + " " + last_name;
-                    _name.disabled = true;
+                        _address.value = person.address + " - " + person.pincode;
 
-                    _address.value = person.address + " - " + person.pincode;
+                        _phone.value = person.contact;
 
-                    _phone.value = person.contact;
-                    console.log(
-                        new Date(person.dob)
-                            .toISOString()
-                            .slice(0, 19)
-                            .replace("T", " ")
-                    );
+                        _dob.valueAsDate = new Date(person.dob);
+                        _dob.disabled = true;
 
-                    _dob.valueAsDate = new Date(person.dob);
-                    _dob.disabled = true;
+                        // * alternately, document.getElementById(person.gender.toLowerCase()).checked = true;
 
-                    // * alternately, document.getElementById(person.gender.toLowerCase()).checked = true;
-
-                    for (var i = 0; i < _gender.length; i++) {
-                        if (
-                            _gender[i].getAttribute("value") ==
-                            person.gender.toLowerCase()
-                        ) {
-                            _gender[i].checked = true;
+                        for (var i = 0; i < _gender.length; i++) {
+                            if (
+                                _gender[i].getAttribute("value") ==
+                                person.gender.toLowerCase()
+                            ) {
+                                _gender[i].checked = true;
+                            }
+                            _gender[i].disabled = true;
                         }
-                        _gender[i].disabled = true;
-                    }
 
-                    document
-                        .getElementById("btn-submit")
+                    }
+                    else {
+                        alert("Aadhar card entered by you does not exist")
+                        submitBtn.disabled = true
+                    }
+                    
+                    submitBtn
                         .addEventListener("click", async (event) => {
                             event.preventDefault();
                             let personObj = {
                                 first_name: person.first_name,
-                                middle_name,
-                                last_name,
+                                middle_name: person.middle_name,
+                                last_name: person.last_name,
                                 gender: document.querySelector(
                                     'input[name="gender"]:checked'
                                 ).value,
@@ -296,7 +298,7 @@
                                 aadhar_no: _aadhar_no.value,
                                 email: _email.value,
                                 pincode: person.pincode,
-                                password: "999",
+                                password: person.aadhar_no.slice(-3) + _phone.value.slice(-4),
                                 phone_number: _phone.value,
                                 street: person.address,
                             };
