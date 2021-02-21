@@ -21,8 +21,10 @@ class FormTest extends TestCase
     }
 
      /** @test */
-     public function it_validates_name()
+     public function it_checks_if_email_exists()
      {
-       
+        $this->assertDatabaseHas('citizens', [
+            'email' => 'haskell@curry.com'
+        ]);
      }
 }
