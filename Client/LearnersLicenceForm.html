@@ -21,13 +21,31 @@
         padding: 1rem;
       }
     </style>
+<script type="text/javascript">
+   $(document).ready(function(){
+
+  var tmp = [];
+  $(".chk").on("change", function() {
+    tmp = [];
+    $(".chk").each(function() {
+        if($(this).prop("checked") == true)
+        {
+          tmp.push($(this).attr("id"));
+        }
+    });
+    $("#hdncheckbox").val(JSON.stringify(tmp));
+    $("#result").text($("#hdncheckbox").val());
+    console.log($("#hdncheckbox").val())
+  });
+});
+</script>
   </head>
   <body style="background-color: black;">
     <div class="container">
       <h1 style="text-align: center; color: white" class="title">Registration Form</h1>
       <div class="col-lg-12 well">
         <div class="row">
-          <form method="post" action="success.php">
+          <form method="post" action="success.php" id="form">
             <div class="col-sm-12">
               <div class="row">
                 <div class="form-group">
@@ -119,24 +137,28 @@
               <div class="row">
                 <div class="form-group">
                 	<label>Vehicle Type</label><br />
-                	<input type="checkbox" name="LMV" value="LMV">
+                	<input type='hidden' id='hdncheckbox' />
+
+                	<input type="checkbox" name="vehicle" value="LMV" class="chk" id="LMV">
                 	<label for="lmv">LMV</label>
                 	<br>
 
-                	<input type="checkbox" name="MCWG" value="MCWG">
+                	<input type="checkbox" name="vehicle" value="MCWG" class="chk" id="MCWG">
                 	<label for="MCWG">MCWG</label>
                 	<br>
 
-                	<input type="checkbox" name="MCWOG" value="MCWOG">
+                	<input type="checkbox" name="vehicle" value="MCWOG" class="chk" id="MCWOG">
                 	<label for="MCWOG">MCWOG</label>
                 	<br>
 
-                	<input type="checkbox" name="HPGMV" value="HPMV">
+                	<input type="checkbox" name="vehicle" value="HPMV" class="chk" id="HPMV">
                 	<label for="HPMV">HPMV</label>
                 	<br>
 
-                	<input type="checkbox" name="HPGMV" value="HPGMV">
+                	<input type="checkbox" name="vehicle" value="HPGMV" class="chk" id="HPGMV">
                 	<label for="HPGMV">HPGMV</label>
+
+                	 <p id="result"></p> 
                 </div>
               </div>
 
@@ -170,7 +192,7 @@
                 </div>
               </div>
               <div class="text-center">
-                <input style="background-color: black ; color: white" 
+                <input style="background-color: black ; color: white; width: 100px; height: 50px" 
                   type="submit"
                   name="submit"
                   value="Register"
