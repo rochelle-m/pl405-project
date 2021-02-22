@@ -21,10 +21,12 @@
                 padding: 1rem;
             }
         </style>
+       
+         
     </head>
-    <body>
+    <body style="background-color: black;">
         <div class="container">
-            <h1 style="text-align: center" class="title">Registration Form</h1>
+            <h1 style="text-align: center; color: white"  class="title" >Registration Form</h1>
             <div class="col-lg-12 well">
                 <div class="row">
                     <form name="registration">
@@ -145,48 +147,32 @@
                             </div>
 
                             <div class="row">
-                                <div class="form-group">
-                                    <label>Vehicle Type</label><br />
-                                    <input
-                                        type="checkbox"
-                                        name="LicenseType"                                        
-                                        value="LMV"
-                                    />
-                                    <label for="lmv">LMV</label>
-                                    <br />
+                <div class="form-group">
+                	<label>Vehicle Type</label><br />
+                	<input type='hidden' id='hdncheckbox' />
 
-                                    <input
-                                        type="checkbox"
-                                        name="LicenseType"
-                                        value="MCWG"
-                                    />
-                                    <label for="MCWG">MCWG</label>
-                                    <br />
+                	<input type="checkbox" name="vehicle" value="LMV" class="chk" id="LMV">
+                	<label for="lmv">LMV</label>
+                	<br>
 
-                                    <input
-                                        type="checkbox"
-                                        name="LicenseType"
-                                        value="MCWOG"
-                                    />
-                                    <label for="MCWOG">MCWOG</label>
-                                    <br />
+                	<input type="checkbox" name="vehicle" value="MCWG" class="chk" id="MCWG">
+                	<label for="MCWG">MCWG</label>
+                	<br>
 
-                                    <input
-                                        type="checkbox"
-                                        name="LicenseType"
-                                        value="HPMV"
-                                    />
-                                    <label for="HPMV">HPMV</label>
-                                    <br />
+                	<input type="checkbox" name="vehicle" value="MCWOG" class="chk" id="MCWOG">
+                	<label for="MCWOG">MCWOG</label>
+                	<br>
 
-                                    <input
-                                        type="checkbox"
-                                        name="LicenseType"
-                                        value="HPGMV"
-                                    />
-                                    <label for="HPGMV">HPGMV</label>
-                                </div>
-                            </div>
+                	<input type="checkbox" name="vehicle" value="HPMV" class="chk" id="HPMV">
+                	<label for="HPMV">HPMV</label>
+                	<br>
+
+                	<input type="checkbox" name="vehicle" value="HPGMV" class="chk" id="HPGMV">
+                	<label for="HPGMV">HPGMV</label>
+
+                	 <p id="result"></p> 
+                </div>
+              </div>
 
                             <!-- <div class="row">
                                 <div class="form-group">
@@ -222,6 +208,7 @@
                                     type="submit"
                                     name="submit"
                                     value="Register"
+                                    style="background-color: black ; color: white; width: 100px; height: 50px"
                                     class="btn btn-lg btn-info"
                                     id="btn-submit"
                                 />
@@ -233,6 +220,23 @@
         </div>
 
         <script>
+            var tmp = [];
+            $(document).ready(function(){
+
+                $(".chk").on("change", function() {
+                tmp = [];
+                $(".chk").each(function() {
+                    if($(this).prop("checked") == true)
+                    {
+                        tmp.push($(this).attr("id"));
+                    }
+                });
+                // $("#hdncheckbox").val(JSON.stringify(tmp));
+                    $("#result").text($("#hdncheckbox").val());
+                    console.log(tmp)
+                });
+            });
+
             async function checkAadhar(aadharCardNumber) {
                 var _name = document.getElementById("name");
                 var _aadhar_no = document.getElementById("aadharnumber");
@@ -284,6 +288,8 @@
                     submitBtn
                         .addEventListener("click", async (event) => {
                             event.preventDefault();
+
+                            console.log(tmp);
                             let personObj = {
                                 first_name: person.first_name,
                                 middle_name: person.middle_name,
