@@ -4,7 +4,7 @@ from flask_cors import CORS
 import pymongo
 import  sys
 
-connection_url = ''
+connection_url = 'mongodb+srv://RTO:12345@cluster0.ftkqc.mongodb.net/UIDAI?retryWrites=true&w=majority'
 app = Flask(__name__)
 CORS(app)
 
