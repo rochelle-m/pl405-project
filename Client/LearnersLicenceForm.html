@@ -103,6 +103,7 @@
                 <div class="row">
                   <div class="form-group">
                     <label>Date Of Birth</label>
+                    <p class="error" id="dob_error"></p>
                     <input
                       type="date"
                       name="dob"
@@ -148,7 +149,6 @@
                     <input type="hidden" id="hdncheckbox" />
 
                     <span title="Light Motor Vehicle">
-
                       <input
                         type="checkbox"
                         name="vehicle"
@@ -156,20 +156,37 @@
                         class="chk"
                         id="LMV"
                       />
-                      <label for="LMV">LMV</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label for="LMV">LMV</label>
                     </span>
 
+                    <span
+                      style="
+                        display: inline-block;
+                        align-items: center;
+                        justify-items: flex-start;
+                      "
+                    >
+                      <div title="Motocycle With Gear">
+                        <input
+                          type="checkbox"
+                          name="vehicle"
+                          value="MCWG"
+                          class="chk"
+                          id="MCWG"
+                        />
+                        <label for="MCWG">MCWG</label>
+                      </div>
 
-                    <span title="Motocycle With Gear">
-                      <input
-                        type="checkbox"
-                        name="vehicle"
-                        value="MCWG"
-                        class="chk"
-                        id="MCWG"
-                       
-                      />
-                      <label for="MCWG">MCWG</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <div title="Motocycle Without Gear">
+                        <input
+                          type="checkbox"
+                          name="vehicle"
+                          value="MCWOG"
+                          class="chk"
+                          id="MCWOG"
+                        />
+                        <label for="MCWOG">MCWOG</label>
+                      </div>
                     </span>
 
                     <span title="Heavy Motor Vehicle">
@@ -180,10 +197,8 @@
                         class="chk"
                         id="HGMV"
                       />
-                      <label for="HMV">HMV</label>&nbsp;&nbsp;&nbsp;&nbsp;
-
+                      <label for="HMV">HMV</label>
                     </span>
-
 
                     <span title="Heavy Passenger Vehicle">
                       <input
@@ -193,7 +208,7 @@
                         class="chk"
                         id="HPMV"
                       />
-                      <label for="HPMV">HPMV/HTV</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label for="HPMV">HPMV/HTV</label>
                     </span>
 
                     <span title="Heavy Goods Vehicle">
@@ -205,22 +220,8 @@
                         id="HPGMV"
                       />
                       <label for="HPGMV">HGMV</label>
-
                     </span>
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   
-                    <span title="Motocycle Without Gear">
-
-                      <input
-                        type="checkbox"
-                        name="vehicle"
-                        value="MCWOG"
-                        class="chk"
-                        id="MCWOG"
-                      />
-                      <label for="MCWOG">MCWOG</label>
-                    </span>
 
                     <!-- <p id="result"></p>  -->
                   </div>
@@ -259,5 +260,6 @@
     </div>
     <script src="aadhar_fetch.js"></script>
     <script src="check_aadhar_validations.js"></script>
+    <script src="checkbox_validations.js"></script>
   </body>
 </html>

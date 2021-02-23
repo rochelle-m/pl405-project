@@ -7,6 +7,7 @@ async function checkAadhar(aadharCardNumber) {
   var _phone = document.getElementById("phone");
   var submitBtn = document.getElementById("submitbtn");
   var error = document.getElementById("aadhar_error");
+  var dobError = document.getElementById("dob_error");
   if (aadharCardNumber.length == 12) {
     console.log(aadharCardNumber);
     const res = await fetch(`http://127.0.0.1:8001/find/${aadharCardNumber}/`);
@@ -19,6 +20,21 @@ async function checkAadhar(aadharCardNumber) {
       _name.disabled = true;
       _address.value = person.address + " - " + person.pincode;
       _phone.value = person.contact;
+
+      let yearOfBirth = new Date(person.dob).getFullYear();
+      let currentYear = new Date().getFullYear();
+      let basicAge = currentYear - yearOfBirth
+      let is16 = false
+      if(basicAge < 16){
+        dobError.innerHTML = "You are below the age of 16. You are not eligible to apply for a learner's permit."
+      }
+      else if(basicAge < 18){
+        is16 = true
+        dobError.innerHTML = ""
+      }
+      else  
+        dobError.innerHTML = ""
+
       _dob.valueAsDate = new Date(person.dob);
       _dob.disabled = true;
       // * alternately, document.getElementById(person.gender.toLowerCase()).checked = true;
@@ -34,28 +50,3 @@ async function checkAadhar(aadharCardNumber) {
     }
   }
 }
-
-$(document).ready(function () {
-  var tmp = [];
-  $(".chk").on("change", function () {
-    tmp = [];
-    $(".chk").each(function () {
-      if ($(this).prop("checked") == true) {
-        tmp.push($(this).attr("id"));
-      }
-    });
-    $("#hdncheckbox").val(JSON.stringify(tmp));
-    // $("#result").text($("#hdncheckbox").val());
-    console.log($("#hdncheckbox").val());
-
-    let wGChecked = tmp.some(p => p == "MCWG")
-    let wOGChecked = tmp.some(p => p == "MCWOG")
-
-    let warning = document.getElementById("warning")
-    warning.style.color = "orange"
-    if(wGChecked && wOGChecked)
-      warning.innerHTML = "You have checked MCWG and MCWOG? MCWG will be considered in your application"
-    else
-      warning.innerHTML = ""
-  });
-});
