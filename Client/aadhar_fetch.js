@@ -6,7 +6,7 @@ async function checkAadhar(aadharCardNumber) {
   var _gender = document.getElementsByName("gender");
   var _phone = document.getElementById("phone");
   var submitBtn = document.getElementById("submitbtn");
-  var error = document.getElementById("aadhar_error_msg");
+  var error = document.getElementById("aadhar_error");
   if (aadharCardNumber.length == 12) {
     console.log(aadharCardNumber);
     const res = await fetch(`http://127.0.0.1:8001/find/${aadharCardNumber}/`);
@@ -34,3 +34,18 @@ async function checkAadhar(aadharCardNumber) {
     }
   }
 }
+
+$(document).ready(function () {
+  var tmp = [];
+  $(".chk").on("change", function () {
+    tmp = [];
+    $(".chk").each(function () {
+      if ($(this).prop("checked") == true) {
+        tmp.push($(this).attr("id"));
+      }
+    });
+    $("#hdncheckbox").val(JSON.stringify(tmp));
+    // $("#result").text($("#hdncheckbox").val());
+    console.log($("#hdncheckbox").val());
+  });
+});
