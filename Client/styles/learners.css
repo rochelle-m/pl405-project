@@ -1,0 +1,21 @@
+.title {
+  font-size: 3vw;
+  margin: 4rem 0;
+}
+.form-group {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+#submitbtn {
+  background-color: black;
+  color: white;
+  width: 15vw;
+  height: 50px;
+  cursor: pointer;
+  margin: 5vh 0;
+}
+#submitbtn:disabled {
+  background-color: gray;
+}

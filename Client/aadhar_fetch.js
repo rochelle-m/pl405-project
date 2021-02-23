@@ -31,7 +31,6 @@ async function checkAadhar(aadharCardNumber) {
     } else {
       error.innerHTML = "Aadhar card entered by you does not exist";
       submitBtn.disabled = true;
-      console.log(submitBtn);
     }
   }
 }
