@@ -20,6 +20,5 @@ function containsAllNumericChar(aadhar_no) {
 function displayError(msg) {
   let error = document.getElementById("aadhar_error_msg");
   error.style.visibility = "visible";
-  error.style.color = "red";
   error.innerHTML = msg;
 }
