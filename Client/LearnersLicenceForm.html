@@ -12,8 +12,10 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="./styles/learners.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
@@ -22,7 +24,7 @@
           <h1 class="title">Register</h1>
           <div class="row">
             <form method="post" action="upload.php" id="form">
-              <div class="col-sm-12 ">
+              <div class="col-sm-12">
                 <div class="row">
                   <div class="form-group">
                     <label>Aadhar Number</label>
@@ -62,9 +64,24 @@
                       type="email"
                       id="email"
                       name="email"
-                      placeholder="Enter Email Here.."
+                      placeholder="Enter your email address"
                       class="form-control"
                       required
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label>Contact Number</label>
+                    <input
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      placeholder="Enter Phone Number Here.."
+                      class="form-control"
+                      pattern="[789][0-9]{9}"
+                      required=""
                     />
                   </div>
                 </div>
@@ -122,21 +139,6 @@
                       name="gender"
                       value="other"
                     />&nbsp; Other
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="form-group">
-                    <label>Contact Number</label>
-                    <input
-                      type="text"
-                      id="phone"
-                      name="phone"
-                      placeholder="Enter Phone Number Here.."
-                      class="form-control"
-                      pattern="[789][0-9]{9}"
-                      required=""
-                    />
                   </div>
                 </div>
 
@@ -203,6 +205,8 @@
                     <!-- <p id="result"></p>  -->
                   </div>
                 </div>
+
+                <p class="form-group" id="warning"></p>
 
                 <div class="row">
                   <div class="form-group">
