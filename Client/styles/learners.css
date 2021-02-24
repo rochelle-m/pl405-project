@@ -63,6 +63,7 @@ body{
 }
 #submitbtn:disabled {
   background-color: gray;
+  cursor: not-allowed;
 }
 
 .error {
