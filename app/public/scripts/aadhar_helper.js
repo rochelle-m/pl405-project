@@ -7,11 +7,11 @@ function checkValidation(aadhar_no) {
 }
 
 function isLength12(len) {
-    return len == 12;
+    return len == 14;
 }
 
 function containsAllNumericChar(aadhar_no) {
-    return aadhar_no.split("").every((dig) => +dig < 10);
+    return aadhar_no.split("").every((dig) => +dig < 10 && +dig > -1);
 }
 
 function displayError(msg) {
@@ -21,6 +21,8 @@ function displayError(msg) {
 }
 
 async function checkAadhar(aadharCardNumber) {
+    format(aadharCardNumber)
+
     var _name = document.getElementById("name");
     var _address = document.getElementById("address");
     var _dob = document.getElementById("dob");
@@ -34,7 +36,9 @@ async function checkAadhar(aadharCardNumber) {
         displayError("Aadhar card can only contain digits");
     } else displayError("");
 
-    if (aadharCardNumber.length == 12) {
+    if (aadharCardNumber.length == 14) {
+        aadharCardNumber = aadharCardNumber.replace(/\s/g, "")
+        console.log(aadharCardNumber);
         const person = await fetchAadharDetails(aadharCardNumber);
         if (!("error" in person)) {
             submitBtn.disabled = false;
@@ -66,6 +70,7 @@ async function checkAadhar(aadharCardNumber) {
 }
 
 async function fetchAadharDetails(aadharCardNumber) {
+    const URL = "http://127.0.0.1:8001"
     const res = await fetch(`http://127.0.0.1:8001/find/${aadharCardNumber}/`);
     return await res.json();
 }
@@ -83,6 +88,10 @@ function checkAge(dob, submitBtn) {
     if (basicAge < 16) {
         submitBtn.disabled = true;
     }
-
     return basicAge < 18;
 }
+
+function format(num){
+    if((num.length == 4 || num.length == 9) )
+        document.getElementById("aadharnumber").value = num +" "    
+}      
