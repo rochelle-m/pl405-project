@@ -1,0 +1,77 @@
+.container {
+    width: 70%;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-y: scroll;
+    filter: blur(2px);
+    filter: brightness(15%);
+    background-color: black;
+    background-image: url("/images/bg3.jpg");
+}
+
+
+
+.form-container {
+    margin: 6vh 0;
+    border-radius: 6px;
+    color: rgb(41, 41, 41);
+    border: 3px solid rgb(41, 41, 41);
+} 
+
+body {
+    height: 100%;
+    overflow-y: scroll;
+    background-color: black;
+}
+.body {
+    position: relative;
+}
+
+.title {
+    font-size: 3vw;
+    text-align: center;
+    padding: 10px;
+    margin: 1vw auto;
+    border: 3px solid black;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+    font-family: "Oswald", sans-serif, "Lucida Sans", "Lucida Sans Regular",
+        "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.form-group {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+#submitbtn {
+    background-color: black;
+    color: white;
+    width: 15vw;
+    height: 50px;
+    cursor: pointer;
+    margin: 5vh 0;
+}
+#submitbtn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.error {
+    font-size: smaller;
+    color: rgb(255, 97, 97);
+    display: inline;
+    float: right;
+}
+
+span {
+    margin: auto 2vw;
+}

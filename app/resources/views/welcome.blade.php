@@ -60,7 +60,7 @@
 
 <div class="main">
   <h2 style="text-align: center; padding-top: 30px">Road Transport Service Application</h2>
-  <img src="vehicle.jpg" style="width: 80%; height: 450px; padding-left: 80px">
+  <img src="images/vehicle.jpg" style="width: 80%; height: 450px; padding-left: 80px">
    
 </div>
    
