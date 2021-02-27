@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/learners/register', function () {
-    return view('LearnersLicenceForm');
+    return view('learners.register');
+}); 
+
+Route::post('/learners/register/upload', function () {
+    return view('learners.upload');
 }); 
