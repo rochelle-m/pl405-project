@@ -57,6 +57,15 @@
                       required=""
                       pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$"
                     />
+                    <input type="hidden" 
+                            id="first_name"
+                   />
+                    <input type="hidden" 
+                           id="middle_name" 
+                    />
+                    <input type="hidden" 
+                           id="last_name" 
+                    />
                   </div>
                 </div>
 
