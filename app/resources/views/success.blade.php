@@ -26,6 +26,10 @@
           echo "welcome $name registretion is successful!!";
       echo "  aadharnumber is  $aadharnumber  ";
   }
+  else
+  {
+	  echo "welcome registretion is not successful!!";
+  }
   echo "";
   ?>
     <h4> check your message for status... </h4>
