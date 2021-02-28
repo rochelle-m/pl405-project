@@ -29,6 +29,7 @@ async function checkAadhar(aadharCardNumber) {
     var _last_name = document.getElementById("last");
     var _address = document.getElementById("address");
     var _pincode = document.getElementById("pin")
+    var _street = document.getElementById("street")
     var _dob = document.getElementById("dob");
     var _email = document.getElementById("email");
     var _gender = document.getElementsByName("gender");
@@ -57,6 +58,7 @@ async function checkAadhar(aadharCardNumber) {
             _address.value = person.address + " - " + person.pincode;
            
             _pincode.value =person.pincode;
+            _street.value =person.address;
 
             _phone.value = person.contact;
 

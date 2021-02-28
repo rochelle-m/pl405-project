@@ -35,7 +35,7 @@
                     <input
                       type="text"
                       id="aadharnumber"
-                      name="aadharnumber"
+                      name="aadhar_no"
                       placeholder="Enter your Aadhar card number"
                       class="form-control"
                       required=""
@@ -59,17 +59,17 @@
                       readonly
                     />
                     <input type="hidden" 
-                           name="first" 
+                           name="first_name" 
                            id="first"
                            value="" 
                    />
                     <input type="hidden" 
-                           name="middle" 
+                           name="middle_name" 
                            id="middle" 
                            value="" 
                     />
                     <input type="hidden"
-                           name="last"  
+                           name="last_name"  
                            id="last"
                            value="" 
                     />
@@ -96,7 +96,7 @@
                     <input
                       type="text"
                       id="phone"
-                      name="phone"
+                      name="phone_number"
                       placeholder="Enter your phone number"
                       class="form-control"
                       pattern="[789][0-9]{9}"
@@ -118,10 +118,15 @@
                     ></textarea>
 
                     <input type="hidden" 
-                           name="pin" 
+                           name="pincode" 
                            id="pin" 
                            value=""
                     >
+                    <input type="hidden"
+                    name="street"  
+                    id="street"
+                    value="" 
+                    />
                   </div>
                 </div>
 
@@ -131,7 +136,7 @@
                     <p class="error" id="dob_error"></p>
                     <input
                       type="date"
-                      name="dob"
+                      name="date_of_birth"
                       id="dob"
                       placeholder="Enter date Here.."
                       rows="3"

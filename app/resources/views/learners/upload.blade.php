@@ -23,7 +23,7 @@
 <div class="container">
 		<div class="body">
 			<div class="col-lg-12 well form-container">
-				<h1 class="title">Upload</h1>
+				<h1 class="title">Upload </h1>
 				<div class="row">
 					<form action="/status" 
 					  method="post" 
@@ -35,7 +35,7 @@
 						  <div class="form-group">
 							<label> Select your photo to upload:</label>
 							<input type="file" 
-									name="picture" 
+									name="photo" 
 								/>
 						  </div>
 						</div>
@@ -48,6 +48,65 @@
 								/>
 						  </div>
 						</div>
+
+								<input type="hidden" 
+								name="first_name" 
+								id="first"
+								value="{{$person["first_name"]}}" 
+						/>
+						<input type="hidden" 
+								name="middle_name" 
+								id="middle" 
+								value="{{$person["middle_name"]}}" 
+						/>
+						<input type="hidden"
+								name="last_name"  
+								id="last"
+								value="{{$person["last_name"]}}" 
+						/>
+						<input type="hidden"
+								name="email"  
+								id="email"
+								value="{{$person["email"]}}" 
+						/>
+						<input type="hidden"
+								name="aadhar_no"  
+								id="aadhar_no"
+								value="{{str_replace(' ', '', $person["aadhar_no"])}}" 
+						/>
+						
+						<input type="hidden"
+								name="phone_number"  
+								id="phone_number"
+								value="{{$person["phone_number"]}}" 
+						/>
+						<input type="hidden"
+								name="street"  
+								id="street"
+								value="{{$person["street"]}}" 
+						/>
+						<input type="hidden"
+								name="pincode"  
+								id="pincode"
+								value="{{$person["pincode"]}}" 
+						/>
+						<input type="hidden"
+								name="date_of_birth"  
+								id="date_of_birth"
+								value="{{$person["date_of_birth"]}}" 
+						/>
+
+								<input type="hidden"
+								name="gender"  
+								id="gender"
+								value="{{$person["gender"]}}" 
+						/>
+							<input type="hidden"
+									name="password"  
+									id="password"
+									value="{{$person["password"]}}" 
+							/>
+
 					
 						<div class="text-center">
 						  <input
