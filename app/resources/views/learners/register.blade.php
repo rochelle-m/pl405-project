@@ -25,7 +25,8 @@
         <div class="col-lg-12 well form-container">
           <h1 class="title">Register</h1>
           <div class="row">
-            <form method="post" action="upload.php" id="form">
+            <form method="post" action="upload/" id="form">
+              @csrf
               <div class="col-sm-12">
                 <div class="row">
                   <div class="form-group">
@@ -38,7 +39,7 @@
                       placeholder="Enter your Aadhar card number"
                       class="form-control"
                       required=""
-                      pattern="[0-9]{12}"
+                      pattern="{12}"
                       onchange="checkValidation(this.value)"
                       oninput="checkAadhar(this.value)"
                     />
