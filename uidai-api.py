@@ -1,10 +1,10 @@
-from __future__ import print_function
-from flask import Flask, jsonify, abort
+from flask import Flask, jsonify
 from flask_cors import CORS
 import pymongo
 import  sys
 
-connection_url = 'mongodb+srv://RTO:12345@cluster0.ftkqc.mongodb.net/UIDAI?retryWrites=true&w=majority'
+# to be filled
+connection_url = ''
 app = Flask(__name__)
 CORS(app)
 
@@ -24,7 +24,6 @@ UIDAI = Database.UIDAI
 def findOne(value):
     queryObject = {'aadhar_no': value}
     query = UIDAI.find_one(queryObject)
-    print(query, flush=True)
     if query is not None:
         query.pop('_id')
         response = jsonify(query)
