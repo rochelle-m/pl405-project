@@ -48,7 +48,7 @@ async function checkAadhar(aadharCardNumber) {
             submitBtn.disabled = false;
             const { first_name, middle_name, last_name } = person;
             _name.value = first_name + " " + middle_name + " " + last_name;
-            _name.disabled = true;
+            // _name.disabled = true;
 
             _first_name.value = first_name;
             _middle_name.value = middle_name;
@@ -63,7 +63,7 @@ async function checkAadhar(aadharCardNumber) {
             let is16 = checkAge(person.dob, submitBtn);
 
             _dob.valueAsDate = new Date(person.dob);
-            _dob.disabled = true;
+            // _dob.disabled = true;
             // * alternately, document.getElementById(person.gender.toLowerCase()).checked = true;
             for (var i = 0; i < _gender.length; i++) {
                 if (
@@ -72,7 +72,7 @@ async function checkAadhar(aadharCardNumber) {
                 ) {
                     _gender[i].checked = true;
                 }
-                _gender[i].disabled = true;
+                // _gender[i].disabled = true;
             }
         } else {
             error.innerHTML = "Aadhar card entered by you does not exist";
