@@ -24,10 +24,11 @@ async function checkAadhar(aadharCardNumber) {
     format(aadharCardNumber)
 
     var _name = document.getElementById("name");
-    var _first_name = document.getElementById("first_name");
-    var _middle_name = document.getElementById("middle_name");
-    var _last_name = document.getElementById("last_name");
+    var _first_name = document.getElementById("first");
+    var _middle_name = document.getElementById("middle");
+    var _last_name = document.getElementById("last");
     var _address = document.getElementById("address");
+    var _pincode = document.getElementById("pin")
     var _dob = document.getElementById("dob");
     var _email = document.getElementById("email");
     var _gender = document.getElementsByName("gender");
@@ -49,8 +50,14 @@ async function checkAadhar(aadharCardNumber) {
             _name.value = first_name + " " + middle_name + " " + last_name;
             _name.disabled = true;
 
-            _first_name.value = person.first_name;
+            _first_name.value = first_name;
+            _middle_name.value = middle_name;
+            _last_name.value = last_name;
+
             _address.value = person.address + " - " + person.pincode;
+           
+            _pincode.value =person.pincode;
+
             _phone.value = person.contact;
 
             let is16 = checkAge(person.dob, submitBtn);

@@ -58,13 +58,19 @@
                       pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$"
                     />
                     <input type="hidden" 
-                            id="first_name"
+                           name="first" 
+                           id="first"
+                           value="" 
                    />
                     <input type="hidden" 
-                           id="middle_name" 
+                           name="middle" 
+                           id="middle" 
+                           value="" 
                     />
-                    <input type="hidden" 
-                           id="last_name" 
+                    <input type="hidden"
+                           name="last"  
+                           id="last"
+                           value="" 
                     />
                   </div>
                 </div>
@@ -109,6 +115,12 @@
                       class="form-control"
                       required=""
                     ></textarea>
+
+                    <input type="hidden" 
+                           name="pin" 
+                           id="pin" 
+                           value=""
+                    >
                   </div>
                 </div>
 
