@@ -25,10 +25,11 @@
 			<div class="col-lg-12 well form-container">
 				<h1 class="title">Upload</h1>
 				<div class="row">
-					<form action="" 
+					<form action="/status" 
 					  method="post" 
 					  enctype="multipart/form-data">
 					  <div class="col-sm-12">
+						@csrf
 					  
 						<div class="row">
 						  <div class="form-group">
