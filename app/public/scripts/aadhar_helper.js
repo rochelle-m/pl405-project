@@ -24,6 +24,9 @@ async function checkAadhar(aadharCardNumber) {
     format(aadharCardNumber)
 
     var _name = document.getElementById("name");
+    var _first_name = document.getElementById("first_name");
+    var _middle_name = document.getElementById("middle_name");
+    var _last_name = document.getElementById("last_name");
     var _address = document.getElementById("address");
     var _dob = document.getElementById("dob");
     var _email = document.getElementById("email");
@@ -45,6 +48,8 @@ async function checkAadhar(aadharCardNumber) {
             const { first_name, middle_name, last_name } = person;
             _name.value = first_name + " " + middle_name + " " + last_name;
             _name.disabled = true;
+
+            _first_name.value = person.first_name;
             _address.value = person.address + " - " + person.pincode;
             _phone.value = person.contact;
 
