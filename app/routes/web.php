@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('LearnersLicenceForm');
 });
+
+Route::get('/success', function () {
+    return view('success');
+});
+
+Route::get('/', function () {
+    return view('');
+});
+
+
