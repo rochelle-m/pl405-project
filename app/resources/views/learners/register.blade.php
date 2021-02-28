@@ -149,7 +149,7 @@
                 <div class="row">
                   <div class="form-group">
                     <label>Vehicle Type</label><br />
-                    <input type="hidden" id="hdncheckbox" />
+                    <input type="hidden" id="hdncheckbox" name="type" />
 
                     <span title="Light Motor Vehicle">
                       <input
