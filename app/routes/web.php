@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with('title', 'Road Transport Services');
 });
+
+Route::get('/learners/register', function () {
+    return view('learners.register');
+}); 
+
+Route::post('/learners/register/upload', function () {
+    return view('learners.upload');
+}); 
