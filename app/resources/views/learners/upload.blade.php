@@ -3,13 +3,31 @@
  <link rel="stylesheet" href="{{ asset('css/upload.css') }}">
 </head>
 <body class="body">
-<form action="" method="post" enctype="multipart/form-data">
-  Select images to upload:
+<form action="" 
+	  method="post" 
+	  enctype="multipart/form-data">
+  
+  Select your photo to upload:
 
   <br>
   <br>
 
-  <input type="file" name="files[]" multiple>
+  <input type="file" 
+		 name="file" 
+		
+	/>
+
+  <br>
+  <br>
+  
+  Select the signature photo to upload:
+
+  <br>
+  <br>
+  
+  <input type="file" 
+		 name="file" 
+	/>
 
   <br>
   <br>
