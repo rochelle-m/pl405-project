@@ -22,3 +22,5 @@ Route::get('/learners/register', function () {
 }); 
 
 Route::post('/learners/register/upload', 'PagesController@register'); 
+
+Route::post('/status', 'PagesController@status'); 
