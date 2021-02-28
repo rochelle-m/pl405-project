@@ -25,7 +25,9 @@ class Citizen extends JsonResource
             'pincode'=> $this->pincode,
             'password'=> $this->password,
             'phone_no' => $this->phone_no,
-            'street' => $this->street
+            'street' => $this->street,
+            'photo' => $this->photo,
+            'signature' => $this->signature,
         ];
     }
 }

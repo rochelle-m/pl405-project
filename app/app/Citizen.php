@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Citizen extends Model
 {
     protected $fillable = [
-        'first_name', 'middle_name', 'last_name',
-        'aadhar_no', 'email', 'gender', 'street',
+        'first_name', 'middle_name', 'last_name', 'aadhar_no', 
+        'email', 'gender', 'street', 'photo', 'signature',
         'pincode', 'date_of_birth', 'phone_number', 'password'
     ];
 }

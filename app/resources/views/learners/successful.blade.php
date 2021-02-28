@@ -1,7 +1,7 @@
 <html>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
-     <link rel="{{asset('css/failed.css')}}" rel="stylesheet">
+     <link href="{{asset('css/success.css')}}" rel="stylesheet">
   </head>
      
     <body>

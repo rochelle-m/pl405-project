@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel="{{asset('css/success.css')}}" rel="stylesheet">
+    <link href="{{asset('css/failed.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
   </head>
      
