@@ -14,11 +14,12 @@
         rel="stylesheet"
     />
 		
+	<link rel="stylesheet" href="{{ asset('css/upload.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/learners.css') }}">
 </head>
 
 
-<body style="background-color: black;">
+<body class="bodyPadding" >
 <div class="container">
 		<div class="body">
 			<div class="col-lg-12 well form-container">
