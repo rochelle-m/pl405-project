@@ -56,6 +56,7 @@
                       class="form-control"
                       required=""
                       pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$"
+                      readonly
                     />
                   </div>
                 </div>
@@ -116,6 +117,7 @@
                       class="form-control"
                       max="2006-12-31"
                       required=""
+                      readonly
                     />
                   </div>
                 </div>
@@ -128,6 +130,7 @@
                       id="female"
                       name="gender"
                       value="female"
+                      onclick="javascript: return false;"
                     />&nbsp; Female &nbsp; &nbsp;
 
                     <input
@@ -135,6 +138,7 @@
                       id="male"
                       name="gender"
                       value="male"
+                      onclick="javascript: return false;"
                     />&nbsp;Male &nbsp; &nbsp;
 
                     <input
@@ -142,6 +146,7 @@
                       id="other"
                       name="gender"
                       value="other"
+                      onclick="javascript: return false;"
                     />&nbsp; Other
                   </div>
                 </div>
