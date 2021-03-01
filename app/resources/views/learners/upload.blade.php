@@ -35,7 +35,8 @@
 						  <div class="form-group">
 							<label> Select your photo to upload:</label>
 							<input type="file" 
-									name="photo" 
+									name="photo"
+									id="photo" 
 									accept=".jpg,.jpeg,.png"
 									onchange="ValidateSize(this)"
 								/>
@@ -47,6 +48,7 @@
 							<label> Select the signature photo to upload:</label>
 							<input type="file" 
 									name="signature" 
+									id="signature" 
 									accept=".jpg,.jpeg,.png"
 									onchange="ValidateSize(this)"
 								/>
@@ -118,6 +120,7 @@
 								name="submit"
 								value="Upload"
 								id="submitbtn"
+								onclick="buttonSubmitClicked(event)"
 							/>
 						</div>
 					</form>
