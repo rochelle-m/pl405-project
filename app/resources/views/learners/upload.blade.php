@@ -36,6 +36,8 @@
 							<label> Select your photo to upload:</label>
 							<input type="file" 
 									name="photo" 
+									accept=".jpg,.jpeg,.png"
+									onchange="ValidateSize(this)"
 								/>
 						  </div>
 						</div>
@@ -45,6 +47,8 @@
 							<label> Select the signature photo to upload:</label>
 							<input type="file" 
 									name="signature" 
+									accept=".jpg,.jpeg,.png"
+									onchange="ValidateSize(this)"
 								/>
 						  </div>
 						</div>
@@ -121,6 +125,6 @@
 			</div>
 		</div>
 	</div>
-	
+ <script type="text/javascript" src="{{ asset('scripts/upload.js') }}"></script>	
 </body>
 </html>
