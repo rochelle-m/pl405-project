@@ -23,7 +23,7 @@ Route::get('/learners/register', function () {
 
 Route::post('/learners/register/upload', 'PagesController@register'); 
 
-Route::post('/status', 'PagesController@status'); 
+Route::post('/learners/register/upload/status', 'PagesController@status'); 
 
 Route::get('/learners/payment', function () {
     return view('learners.payment');

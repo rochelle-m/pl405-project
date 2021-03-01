@@ -24,6 +24,7 @@ class PagesController extends Controller
     }
 
     public function status(Request $request){
+        // dd("s");
         $person = $request->all();
 
         $Citizen = Citizen::create($person);
@@ -34,9 +35,11 @@ class PagesController extends Controller
             return view('learners.successful', ['msg1' => 'Registration Successful !',
             'msg2' => 'Check your email for details']);
         }
-        else
+        else{
+
             return view('learners.failed', ['msg1' => 'Oops! Registration Failed',
-            'msg2' => 'Sorry for the inconvinience.<br/>Please Try Again Later.', 
+            'msg2' => 'Sorry for the inconvinience. Please Try Again Later.', 
             'msg3' => '']);
+        }
     }
 }
