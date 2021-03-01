@@ -24,7 +24,6 @@ class PagesController extends Controller
     }
 
     public function status(Request $request){
-        // dd("s");
         $person = $request->all();
 
         $Citizen = Citizen::create($person);
