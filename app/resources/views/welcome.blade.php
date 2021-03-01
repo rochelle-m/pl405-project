@@ -14,14 +14,21 @@
             <a href="#resources">Study Material</a>
         </div>
 
-        <div class="main">
-            <h2 style="text-align: center; padding-top: 30px">
+             <div class="header">
+            <h2>
                 {{$title ?? ''}}
             </h2>
+            </div>
+
+        <div class="main">
             <img
                 src="images/vehicle.jpg"
                 style="width: 80%; height: 450px; padding-left: 80px"
             />
+        </div>
+        <div class="footer">
+            <h2>Developed by Department Of Computer Science & Technology, Goa University</h2>
+
         </div>
     </body>
 </html>
