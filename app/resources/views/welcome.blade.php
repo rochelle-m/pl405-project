@@ -8,7 +8,8 @@
 
     <body>
         <div class="sidenav">
-            <a href="learners/register/">Apply Learner License</a>
+            <a href="learners/register/">Apply Learner's License</a>
+            <a href="learners/renew">Renew Learner's License</a>
             <a href="#DrivingLicense">Apply Driving License</a>
             <a href="#status">Application Status</a>
             <a href="#resources">Study Material</a>

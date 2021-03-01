@@ -21,6 +21,10 @@ Route::get('/learners/register', function () {
     return view('learners.register');
 }); 
 
+Route::get('/learners/renew', function () {
+    return view('learners.renew');
+}); 
+
 Route::post('/learners/register/upload', 'PagesController@register'); 
 
 Route::post('/learners/register/upload/status', 'PagesController@status'); 
