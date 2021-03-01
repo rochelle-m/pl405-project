@@ -40,3 +40,32 @@ body {
         font-size: 18px;
     }
 }
+.header {
+    margin-left: 152px;
+margin-top: -9px;
+    font-size: 20px;
+  height: 80px;
+text-align: center;
+    
+    background: #111;
+    color: #818181;
+     border-style: solid;
+    border-color:  #818181;
+    border-width: thick;
+    font-weight: bolder;
+ 
+}
+ 
+
+.footer {
+    margin-left: 152px;
+    font-size: 10px;
+    padding:7px;
+    text-align: center;
+    background: #111;
+    color: #818181;
+      border-style: solid;
+    border-color:  #818181;
+    font-weight: bolder;
+ 
+}
