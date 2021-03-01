@@ -25,25 +25,26 @@
 
         </div>
     
-      <?php 
+     
+  
+    
+		<div>
+		 <?php 
            $d=date("Y-m-d", strtotime("+1 week"));
          $dayofweek = date('w', strtotime($d));
      if($dayofweek == 'Sunday')
        $d = date("Y-m-d", strtotime("+1 day"));?>
-  
-    
-<div class="col-md-10">
-  <table border ="1" cellpadding="10" cellspacing="5" align="center">
-<tr>
-  <td align = "center" colspan="2" ><b>EXAM DETAILS</b></td>
-</tr>   
-    <tr>
-  <td>Exam Date</td>
-  <td><?php echo $d ?></td>
-</tr>
-<tr>
+		  <table border ="1" cellpadding="10" cellspacing="5" align="center">
+		<tr>
+		  <td align = "center" colspan="2" ><b>EXAM DETAILS</b></td>
+		</tr>   
+			<tr>
+		  <td>Exam Date</td>
+		  <td><?php echo $d ?></td>
+		</tr>
+		<tr>
 
-</div>  
+		</div>  
 <script>
 
 
@@ -94,7 +95,11 @@ I am physically fit to ride/drive a vehicle.
 
 
 
+
+
+
     
     </body>
+	
 
 </html>
