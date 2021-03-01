@@ -62,13 +62,15 @@
 </script>
 <br><br>
 <div class="normal " style="margin-left: 200px">
-  I state that I am 18 years old. 
+  I state that I am 18 years old (more than 18 or equle to 18). 
 <p>
 I hold an Indian nationality.
 <p>
 I am physically fit to ride/drive a vehicle.
 <p>
-
+I hereby declare that, to the best of my knowledge and belief, 
+<p>
+the particulars given above and the declaration made therein are true. 
 
   <label for="location">location:-</label>
   <input type="text"  name="location"><br>
@@ -81,7 +83,7 @@ I am physically fit to ride/drive a vehicle.
 <p><input type="checkbox" required name="terms"> I accept the <u>Terms and Conditions</u></p>
 <p><input id="submit" type="submit"></p>
 </form>
-<div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_GDHySC8xb8V2TZ/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
+<div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_GhLnKjKE7L1S8C/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
   <script>
     (function(){
       var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
@@ -90,7 +92,10 @@ I am physically fit to ride/drive a vehicle.
       rzp && rzp.init && rzp.init()}})();
   </script>
 </div>
+    
 </div>
+
+
 
 
 
