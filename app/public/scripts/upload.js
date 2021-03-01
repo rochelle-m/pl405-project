@@ -10,3 +10,15 @@ function ValidateSize(file) {
 
         }
     }
+
+
+    function buttonSubmitClicked(event) {
+
+        if (!document.getElementById("photo").value || !document.getElementById("signature").value) {
+            event.preventDefault();
+            alert("Please choose a file!");
+        } else {
+      
+	        }
+        
+    }
