@@ -55,17 +55,7 @@
 						  </div>
 						</div>
 						
-						<div class="row">
-						  <div class="form-group">
-							<label> Select the Form_I</label>
-							<input type="file" 
-									name="form_1" 
-									id="signature" 
-									accept=".pdf"
-									onchange="ValidateSize(this)"
-								/>
-						  </div>
-						</div>
+					
 								<input type="hidden" 
 								name="first_name" 
 								value="{{$person["first_name"]}}" 
