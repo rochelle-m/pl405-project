@@ -1,0 +1,57 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+.main {
+    padding: 0px 10px;
+    margin-left: 40%; 
+}
+
+
+.login-form{
+        margin-top: 50%;
+        border: 1px solid black;
+        padding: 50px;
+        background-color: black;
+      }
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+
+.btn-black{
+    background-color:  #fff !important;
+    color: #000;
+    margin-left: 100px;
+}
+
+.forgotpassword{
+  padding-left: 135px;
+  color: grey;
+}
+
+.lable{
+  color: #fff;
+}
