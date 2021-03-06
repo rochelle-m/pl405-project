@@ -10,15 +10,13 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<link rel="stylesheet" 
-      type="text/css" 
-      href="login.css">
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 </head>
 <body>
 <div class="sidenav">
          <div>
-         	<a href="home.php">Home</a>
+         	<a href="welcome.blade.php">Home</a>
          </div>
 </div>
 
@@ -39,7 +37,7 @@
                       placeholder="Enter the password">
             </div>
 
-            <a class="forgotpassword" href="">Forgot password?</a>
+            <a class="forgotpassword" href="forgotpassword.blade.php">Forgot password?</a>
             <br>
             <br>
             <button type="submit" 
