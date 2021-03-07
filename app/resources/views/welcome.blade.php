@@ -10,6 +10,7 @@
 
 @section('content')
     <div class="sidenav">
+        <a href="learners/login/">Login</a>
         <a href="learners/register/">Apply Learner's License</a>
         <a href="learners/renew">Renew Learner's License</a>
         <a href="#DrivingLicense">Apply Driving License</a>
