@@ -33,11 +33,15 @@ Route::get('/learners/payment', function () {
     return view('learners.payment');
 }); 
 
-Route::get('/learners/test', function () {
+Route::get('/learners/test/auth', function () {
     return view('learners.test.auth');
 }); 
 
 Route::get('/learners/test/instructions', function () {
     return view('learners.test.instructions');
+}); 
+
+Route::get('/learners/test', function () {
+    return view('learners.test.question');
 }); 
 
