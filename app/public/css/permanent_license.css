@@ -13,15 +13,17 @@
     filter: blur(2px);
     filter: brightness(15%);
     background-color: black;
-    background-image: url("/images/bg3.jpg");
+    
 }
+
+
 
 .form-container {
     margin: 6vh 0;
     border-radius: 6px;
     color: rgb(41, 41, 41);
     border: 3px solid rgb(41, 41, 41);
-}
+} 
 
 body {
     height: 100%;
@@ -37,12 +39,10 @@ body {
     text-align: center;
     padding: 10px;
     margin: 1vw auto;
-    border: 3px solid black;
-    border-radius: 5px;
+    font-weight: bold;
     text-align: center;
     width: fit-content;
-    font-family: "Oswald", sans-serif, "Lucida Sans", "Lucida Sans Regular",
-        "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    
 }
 .form-group {
     width: 90%;
@@ -50,7 +50,7 @@ body {
     padding: 1rem;
 }
 
-#submitbtn {
+#applybtn {
     background-color: black;
     color: white;
     width: 15vw;
@@ -58,7 +58,7 @@ body {
     cursor: pointer;
     margin: 5vh 0;
 }
-#submitbtn:disabled {
+#applybtn:disabled {
     background-color: gray;
     cursor: not-allowed;
 }
@@ -74,23 +74,29 @@ span {
     margin: auto 2vw;
 }
 
-<<<<<<< HEAD
-.forgotpassword{
-  float: right;
-  margin-right: 40px;
-  color: #000;
-=======
-ul.instructions {
-    list-style: "👉 ";
-    font-size: medium;
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
 }
 
-ul.instructions li,
-ul p {
-    margin-top: 10px;
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
 }
 
-ul p {
-    font-size: large;
->>>>>>> 4f039a2108c8ed5e6a799fc49c7a0a7de7cc95e8
-}
+ .login-form{
+        margin-top: 50%;
+        border: 1px solid black;
+        padding: 50px;
+        background-color: black;
+      }
