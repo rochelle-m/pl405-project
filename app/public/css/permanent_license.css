@@ -1,0 +1,102 @@
+.container {
+    width: 70%;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-y: scroll;
+    filter: blur(2px);
+    filter: brightness(15%);
+    background-color: black;
+    
+}
+
+
+
+.form-container {
+    margin: 6vh 0;
+    border-radius: 6px;
+    color: rgb(41, 41, 41);
+    border: 3px solid rgb(41, 41, 41);
+} 
+
+body {
+    height: 100%;
+    overflow-y: scroll;
+    background-color: black;
+}
+.body {
+    position: relative;
+}
+
+.title {
+    font-size: 3vw;
+    text-align: center;
+    padding: 10px;
+    margin: 1vw auto;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    
+}
+.form-group {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+#applybtn {
+    background-color: black;
+    color: white;
+    width: 15vw;
+    height: 50px;
+    cursor: pointer;
+    margin: 5vh 0;
+}
+#applybtn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.error {
+    font-size: smaller;
+    color: rgb(255, 97, 97);
+    display: inline;
+    float: right;
+}
+
+span {
+    margin: auto 2vw;
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+ .login-form{
+        margin-top: 50%;
+        border: 1px solid black;
+        padding: 50px;
+        background-color: black;
+      }
