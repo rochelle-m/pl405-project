@@ -26,18 +26,23 @@
          <form>
             <div class="form-group">
                <label class="lable">Email</label>
-               <input type="text" 
+               <input type="email" 
+                      name="email" 
                       class="form-control" 
-                      placeholder="Enter the email here">
+                      placeholder="Enter the email here"
+                      required>
             </div>
             <div class="form-group">
                <label class="lable">Password</label>
                <input type="password" 
+                      name="email" 
                       class="form-control" 
-                      placeholder="Enter the password">
+                      placeholder="Enter the password"
+                      minlength="8"
+                      required>
             </div>
 
-            <a class="forgotpassword" href="forgotpassword.blade.php">Forgot password?</a>
+            <a class="forgotpassword" href="mailto:abc@example.com?subject = Feedback&body = Message  forgotpassword.blade.php">Forgot password?</a>
             <br>
             <br>
             <button type="submit" 
