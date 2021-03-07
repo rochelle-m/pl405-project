@@ -16,14 +16,12 @@
     background-image: url("/images/bg3.jpg");
 }
 
-
-
 .form-container {
     margin: 6vh 0;
     border-radius: 6px;
     color: rgb(41, 41, 41);
     border: 3px solid rgb(41, 41, 41);
-} 
+}
 
 body {
     height: 100%;
@@ -74,4 +72,18 @@ body {
 
 span {
     margin: auto 2vw;
+}
+
+ul.instructions {
+    list-style: "👉 ";
+    font-size: medium;
+}
+
+ul.instructions li,
+ul p {
+    margin-top: 10px;
+}
+
+ul p {
+    font-size: large;
 }

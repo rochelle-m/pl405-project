@@ -36,3 +36,8 @@ Route::get('/learners/payment', function () {
 Route::get('/learners/test', function () {
     return view('learners.test.auth');
 }); 
+
+Route::get('/learners/test/instructions', function () {
+    return view('learners.test.instructions');
+}); 
+
