@@ -1,6 +1,5 @@
 body {
     font-family: "Lato", sans-serif;
-	 
 }
 
 .sidenav {
@@ -18,8 +17,8 @@ body {
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
-    color: #818181;
+    font-size: 18px;
+    color: #aeaeae;
     display: block;
 }
 
@@ -43,42 +42,34 @@ body {
 }
 .header {
     margin-left: 152px;
-margin-top: -9px;
+    margin-top: -9px;
     font-size: 20px;
-  height: 80px;
-text-align: center;
-    
+    height: 80px;
+    text-align: center;
+
     background: #111;
-    color: #818181;
-     border-style: solid;
-    border-color:  #818181;
-    border-width: thick;
-    font-weight: bolder;
- 
+    color: #c3c3c3;
+    border-style: solid;
+    border-color: #c3c3c3;
 }
- 
 
 .footer {
     margin-left: 152px;
     font-size: 10px;
-    padding:7px;
+    padding: 7px;
     text-align: center;
     background: #111;
-    color: #818181;
-      border-style: solid;
-    border-color:  #818181;
+    color: #c3c3c3;
+    border-style: solid;
+    border-color: #c3c3c3;
     font-weight: bolder;
- 
 }
 
- #submit{
-
-  background-color: #111; 
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  
-
+#submit {
+    background-color: #111;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
 }

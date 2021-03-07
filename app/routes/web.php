@@ -32,3 +32,7 @@ Route::post('/learners/register/upload/status', 'PagesController@status');
 Route::get('/learners/payment', function () {
     return view('learners.payment');
 }); 
+
+Route::get('/learners/test', function () {
+    return view('learners.test.auth');
+}); 
