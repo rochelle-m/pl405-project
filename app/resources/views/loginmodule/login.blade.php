@@ -1,11 +1,5 @@
-
-@extends('app')
-
-@section('title')
-  Learners License | Register
-@endsection
-      
-@section('imports')
+ <!DOCTYPE html>
+ <html>
   <link
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
   rel="stylesheet"
@@ -19,14 +13,14 @@
   rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="{{ asset('css/learners.css') }}">
-@endsection
-       
-@section('content')
-<div class="container">
+  <link rel="stylesheet" href="{{ asset('css/learners.css') }}"> 
+  
+  <body>
+ 
+ <div class="container">
   <div class="body">
     <div class="col-lg-12 well form-container">
-      <h1 class="title">Register</h1>
+      <h1 class="title">Log in</h1>
       <div class="row">
         <form method="post" action="upload/" id="form">
           @csrf
@@ -84,9 +78,11 @@
     </div>
   </div>
 </div>
+
 <script src="aadhar_helper.js"></script>
 <script type="text/javascript" src="{{ asset('scripts/checkbox_validations.js') }}"></script>
 <script type="text/javascript" src="{{ asset('scripts/aadhar_helper.js') }}"></script>
-
-@endsection
+</body>
+</html>
+ 
 
