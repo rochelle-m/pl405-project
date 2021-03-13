@@ -26,7 +26,7 @@
     <div class="col-lg-12 well form-container">
       <h1 class="title">Register</h1>
       <div class="row">
-        <form method="post" action="upload/" id="form">
+        <form method="post" action="register/upload/" id="form">
           @csrf
           <div class="col-sm-12">
             <div class="row">

@@ -38,9 +38,7 @@ Instructor Auth
                     name="aadhar_no"
                     class="form-control"
                     required=""
-                    pattern="{12}"
-                    onchange="checkValidation(this.value)"
-                    oninput="checkAadhar(this.value)"
+                    onchange="checkAadhar(this.value)"
                   />
                 </div>
               </div>
@@ -86,6 +84,8 @@ Instructor Auth
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="{{ asset('scripts/checkIfExists.js') }}"></script>
+
   </div>
 @endsection
     

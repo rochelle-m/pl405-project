@@ -17,7 +17,7 @@
         <a href="#status">Application Status</a>
         <a href="#resources">Study Material</a>
         <hr>
-        <a href="learners/test">Learners's Test<small> (restricted) </small></a>
+        <a href="learners/test/auth">Learners's Test<small> (restricted) </small></a>
     </div>
 
         <div class="header">
