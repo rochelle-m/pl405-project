@@ -45,11 +45,13 @@ Instructor Auth
               <div class="row">
                 <div class="form-group">
                   <label>Instructor Token</label>
+                  <p class="error" id="token_error"></p>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="token"
+                    name="token"
                     class="form-control"
+                    onchange="checkToken(this.value)"
                     pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$"
                   />
                 
@@ -85,6 +87,7 @@ Instructor Auth
       </div>
     </div>
     <script type="text/javascript" src="{{ asset('scripts/checkIfExists.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('scripts/checkInstructorToken.js') }}"></script>
 
   </div>
 @endsection
