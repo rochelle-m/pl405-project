@@ -45,3 +45,10 @@ Route::get('/learners/test', function () {
     return view('learners.test.question');
 }); 
 
+Route::get('/loginmodule/login', function () {
+    return view('loginmodule.login');
+});
+
+Route::get('/permanent_licence/permanent_license', function () {
+    return view('permanent_licence.permanent_license');
+});

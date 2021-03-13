@@ -74,6 +74,12 @@ span {
     margin: auto 2vw;
 }
 
+.forgotpassword{
+  float: right;
+  margin-right: 40px;
+  color: #000;
+}
+
 ul.instructions {
     list-style: "👉 ";
     font-size: medium;
