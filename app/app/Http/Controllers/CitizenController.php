@@ -21,17 +21,9 @@ class CitizenController extends Controller
                 ->setStatusCode(201);
     }
 
-    public function citizen_exists(Request $request){
-        
-        if( Citizen::where('aadhar_no',str_replace(' ', '', $request['aadhar_no']))->exists()){
-            return response()->json([
-                'exits' => $request->all()
-            ]);
-        }
-        else{
-            return response()->json([
-                'exits' => $request->all()
-            ]);
-        }
+    public function citizen_exists(Request $request){     
+        return ([
+            'exists' => Citizen::where('aadhar_no',str_replace(' ', '', $request['aadhar_no']))->exists()
+        ]);         
     }
 }
