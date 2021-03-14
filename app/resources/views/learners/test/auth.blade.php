@@ -25,7 +25,7 @@ Instructor Auth
       <div class="col-lg-12 well form-container">
         <h1 class="title">Learner's License</h1>
         <div class="row">
-          <form method="post" action="upload/" id="form">
+          <form method="post" action="instructions/" id="form">
             @csrf
             <div class="col-sm-12">
               <div class="row">
@@ -51,8 +51,6 @@ Instructor Auth
                     id="token"
                     name="token"
                     class="form-control"
-                    onchange="checkToken(this.value)"
-                    pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$"
                   />
                 
                 </div>
@@ -66,7 +64,6 @@ Instructor Auth
                     id="password"
                     name="password"
                     class="form-control"
-                    minlength="8"
                     required
                   />
                 </div>
@@ -87,7 +84,6 @@ Instructor Auth
       </div>
     </div>
     <script type="text/javascript" src="{{ asset('scripts/checkIfExists.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('scripts/checkInstructorToken.js') }}"></script>
 
   </div>
 @endsection

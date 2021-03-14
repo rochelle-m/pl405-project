@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,8 +37,11 @@ Route::get('/learners/test/auth', function () {
     return view('learners.test.auth');
 }); 
 
-Route::get('/learners/test/instructions', function () {
-    return view('learners.test.instructions');
+Route::post('/learners/test/instructions', 'PagesController@index'); 
+Route::get('/learners/test/instructions', 'PagesController@index'); 
+
+Route::post('/learners/test', function (Request $request) {
+    return view('learners.test.question', ["details" => $request->all()]);
 }); 
 
 Route::get('/learners/test', function () {

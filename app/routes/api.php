@@ -21,4 +21,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/citizen', 'CitizenController@store');
 
 Route::post('/citizen_exists', 'CitizenController@citizen_exists');
-Route::post('/checkToken', 'InstructorController@token');
