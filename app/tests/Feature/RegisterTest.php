@@ -9,15 +9,27 @@ use Tests\TestCase;
 class RegisterTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * When I send a GET request to the register route,
+     * Then it should return the learners.register view.
+     * And I should see the registration form
      *
      * @return void
      */
-    public function testExample()
+    public function testRoute()
     {
-        $response = $this->get('/register');
+        $response = $this->get('/learners/register');
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)->assertViewIs('learners.register');
         $response->assertSee('Register');
+        $response->assertSee('Name');
+        $response->assertSee('Email');
+        $response->assertSee('Contact Number');
+        $response->assertSee('Address');
+        $response->assertSee('Date Of Birth');
+        $response->assertSee('Gender');
+        $response->assertSee('Vehicle Type');
+        $response->assertSee('Password');
+
     }   
+
 }
