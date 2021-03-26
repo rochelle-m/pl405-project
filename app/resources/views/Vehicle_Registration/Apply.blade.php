@@ -28,7 +28,10 @@
     <div class="col-lg-12 well form-container">
       <h1 class="title">Application For Permanent License</h1>
       <div class="row">
-        <form method="post" action="upload/" id="form">
+        
+		<form action="status" 
+					  method="post" 
+					  enctype="multipart/form-data" id="form">
          
           <div class="col-sm-12">
             <div class="row">
@@ -189,9 +192,9 @@
                 <label>  Dealer Name </label>
                 <input
                   type="text"
-                  id="Name"
-                  name="Owner_name"
-                  placeholder=""
+                  id="Dealer_Name"
+                  name="Dealer_Name"
+                  placeholder="Dealer Name"
                   class=""
                   required=""
                 />
