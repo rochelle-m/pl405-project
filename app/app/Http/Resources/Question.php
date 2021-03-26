@@ -24,6 +24,7 @@ class Question extends JsonResource
             'option4' => $this->option4,
             'category' => $this->category,
             'correct' => $this->correct,
+            'level' => $this->level
         ];
     }
 }

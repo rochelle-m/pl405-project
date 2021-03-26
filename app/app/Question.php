@@ -8,6 +8,6 @@ class Question extends Model
 {
     protected $fillable = [
         'id', 'question', 'img', 'option1', 'option2',
-        'option3', 'option4', 'category', 'correct'
+        'option3', 'option4', 'category', 'correct', 'level'
     ];
 }

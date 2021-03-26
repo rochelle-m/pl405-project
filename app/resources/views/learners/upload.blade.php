@@ -1,5 +1,11 @@
-<html>
-<head>
+@extends('app')
+
+@section('title')
+  Upload
+@endsection
+      
+@section('imports')
+
 	<link
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
         rel="stylesheet"
@@ -13,13 +19,20 @@
 		href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
         rel="stylesheet"
     />
-		
+ 
+	  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	  <link rel="preconnect" href="https://fonts.gstatic.com" />
+	  <link
+	  href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+	  rel="stylesheet"
+	  />
+
 	<link rel="stylesheet" href="{{ asset('css/upload.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/learners.css') }}">
-</head>
+@endsection
+       
+@section('content')
 
-
-<body class="bodyPadding" >
 <div class="container">
 		<div class="body">
 			<div class="col-lg-12 well form-container">
@@ -121,5 +134,4 @@
 		</div>
 	</div>
  <script type="text/javascript" src="{{ asset('scripts/upload.js') }}"></script>	
-</body>
-</html>
+@endsection
