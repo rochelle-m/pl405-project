@@ -40,13 +40,9 @@ Route::get('/learners/test/auth', function () {
 Route::post('/learners/test/instructions', 'PagesController@index'); 
 Route::get('/learners/test/instructions', 'PagesController@index'); 
 
-Route::post('/learners/test', function (Request $request) {
-    return view('learners.test.question', ["details" => $request->all()]);
-}); 
+Route::post('/learners/test', 'QuestionController@generate'); 
 
-Route::get('/learners/test', function () {
-    return view('learners.test.question');
-}); 
+Route::get('/learners/test', 'QuestionController@generate'); 
 
 Route::get('/loginmodule/login', function () {
     return view('loginmodule.login');
