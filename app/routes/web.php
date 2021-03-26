@@ -55,3 +55,8 @@ Route::get('/loginmodule/login', function () {
 Route::get('/permanent_licence/permanent_license', function () {
     return view('permanent_licence.permanent_license');
 });
+Route::get('/Vehicle_Registration/Apply', function () {
+    return view('Vehicle_Registration.Apply');
+});
+
+ 
