@@ -26,7 +26,7 @@ rel="stylesheet"
         <h1 class="title">Test Instructions</h1>
         <div class="row">
             <ul class="instructions">
-
+             
                 <li>
                     20 questions will be displayed one by one 
                 </li>
@@ -46,17 +46,23 @@ rel="stylesheet"
                   After you finish the test, your percentage and result will be displayed
               </li>
               <p>
-                  All the best!
+                  All the best {{$fname ?? ''}} {{ $lname ?? ''}}
               </p>
             </ul>
         </div>
-        <div class="text-center">
-            <input
-              type="submit"
-              name="submit"
-              value="Proceed to Test"
-              id="submitbtn"
-            />
+        <div class="/learners/test">
+          <form method="post" action="/learners/test">
+          @csrf
+          <input name="name" value="{{$fname ?? ''}} {{ $lname ?? ''}}" hidden></input>
+          <input name="aadhar_no" value="{{$aadhar_no ?? ''}}" hidden></input>
+          <input name="token" value="{{$token ?? ''}}" hidden></input>
+          <input
+            type="submit"
+            name="submit"
+            value="Proceed to Test"
+            id="submitbtn"
+          />
+        </form>
           </div>
       </div>
     </div>

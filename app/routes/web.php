@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,13 +37,12 @@ Route::get('/learners/test/auth', function () {
     return view('learners.test.auth');
 }); 
 
-Route::get('/learners/test/instructions', function () {
-    return view('learners.test.instructions');
-}); 
+Route::post('/learners/test/instructions', 'PagesController@index'); 
+Route::get('/learners/test/instructions', 'PagesController@index'); 
 
-Route::get('/learners/test', function () {
-    return view('learners.test.question');
-}); 
+Route::post('/learners/test', 'QuestionController@generate'); 
+
+Route::get('/learners/test', 'QuestionController@generate'); 
 
 Route::get('/loginmodule/login', function () {
     return view('loginmodule.login');
@@ -52,3 +51,8 @@ Route::get('/loginmodule/login', function () {
 Route::get('/permanent_licence/permanent_license', function () {
     return view('permanent_licence.permanent_license');
 });
+Route::get('/Vehicle_Registration/Apply', function () {
+    return view('Vehicle_Registration.Apply');
+});
+
+ 

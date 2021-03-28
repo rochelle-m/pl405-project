@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Request\CitizenExists;
 use App\Citizen;
 use App\Http\Resources\Citizen as CitizenResource;
 
@@ -18,5 +19,11 @@ class CitizenController extends Controller
         return (new CitizenResource($Citizen))
                 ->response()
                 ->setStatusCode(201);
+    }
+
+    public function citizen_exists(Request $request){     
+        return ([
+            'exists' => Citizen::where('aadhar_no',str_replace(' ', '', $request['aadhar_no']))->exists()
+        ]);         
     }
 }

@@ -25,7 +25,7 @@ Instructor Auth
       <div class="col-lg-12 well form-container">
         <h1 class="title">Learner's License</h1>
         <div class="row">
-          <form method="post" action="upload/" id="form">
+          <form method="post" action="instructions/" id="form">
             @csrf
             <div class="col-sm-12">
               <div class="row">
@@ -38,21 +38,19 @@ Instructor Auth
                     name="aadhar_no"
                     class="form-control"
                     required=""
-                    pattern="{12}"
-                    onchange="checkValidation(this.value)"
-                    oninput="checkAadhar(this.value)"
+                    onchange="checkAadhar(this.value)"
                   />
                 </div>
               </div>
               <div class="row">
                 <div class="form-group">
                   <label>Instructor Token</label>
+                  <p class="error" id="token_error"></p>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="token"
+                    name="token"
                     class="form-control"
-                    pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$"
                   />
                 
                 </div>
@@ -66,7 +64,6 @@ Instructor Auth
                     id="password"
                     name="password"
                     class="form-control"
-                    minlength="8"
                     required
                   />
                 </div>
@@ -86,6 +83,8 @@ Instructor Auth
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="{{ asset('scripts/checkIfExists.js') }}"></script>
+
   </div>
 @endsection
     
