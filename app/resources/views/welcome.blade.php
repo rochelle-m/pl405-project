@@ -13,17 +13,11 @@
         <a href="loginmodule/login/">Login</a>
         <a href="learners/register/">Apply Learner's License</a>
         <a href="learners/renew">Renew Learner's License</a>
-<<<<<<< HEAD
         <a href="permanent_licence/permanent_license">Apply Driving License</a>
-=======
-        <a href="learners/test/instructions/">Take a mock learner's test</a>
-        <a href="permanent_license">Apply Driving License</a>
->>>>>>> 567be64d66597aebcb8161cc632bc3b0afd627b6
         <a href="#status">Application Status</a>
         <a href="#resources">Study Material</a>
         <hr>
-        <a href="learners/test/auth">Learners's Test<small> (restricted) </small></a>
-		<a href="Vehicle_Registration/Apply">Vehicle Registration</a>
+        <a href="learners/test">Learners's Test<small> (restricted) </small></a>
     </div>
 
         <div class="header">
