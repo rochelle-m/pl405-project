@@ -25,7 +25,7 @@ class CreateApplyRegsTable extends Migration
 			$table->string('Fuel_type', 100);
 			$table->string('Dealer_Name', 256);
 			$table->string('Dealer_City', 128);
-            
+            $table->timestamps();
         });
     }
 
