@@ -117,6 +117,11 @@
 									id="password"
 									value="{{$person["password"]}}" 
 							/>
+							<input type="hidden"
+									name="type"  
+									id="type"
+									value="{{$person["type"]}}" 
+							/>
 
 					
 						<div class="text-center">

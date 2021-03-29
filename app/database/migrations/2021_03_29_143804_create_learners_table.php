@@ -16,12 +16,13 @@ class CreateLearnersTable extends Migration
         Schema::create('learners', function (Blueprint $table) {
             $table->string('aadhar_no', 12);
             $table->foreign('aadhar_no')->references('aadhar_no')->on('citizens');
-            $table->string('eid', 20)->primary();
-            $table->dateTime('exam_date');
-            $table->string('exam_password');
+            $table->string('eid', 20)->nullable();
+            $table->dateTime('exam_date')->nullable();
+            $table->string('exam_password')->nullable();
             $table->string('status', 20)->default('Not attempted');
             $table->date('issue_date')->nullable();
-            $table->timestamps();
+            $table->string('type', 12);
+            $table->primary(['aadhar_no', 'type']);
         });
     }
 

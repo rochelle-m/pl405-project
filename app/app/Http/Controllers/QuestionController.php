@@ -9,13 +9,13 @@ use DB;
 class QuestionController extends Controller
 {
     public function generate(Request $request){
-
-        $questions = DB::select('SELECT * FROM questions');;
        
-        if( $request->method() == "GET"){
-                return view('learners.test.question');
+        if( $request->aadhar_no == null){
+            $questions = DB::select('SELECT question, option1,option2,option3,option4, correct FROM questions WHERE LEVEL = \'E\' ORDER BY rand() LIMIT 20');
+            return view('learners.test.question');
         }
         
+        $questions = DB::select('SELECT question, option1,option2,option3,option4, correct FROM questions WHERE LEVEL = \'E\' ORDER BY rand() LIMIT 20');
         return view('learners.test.question', ["details" => $request->all()]);
     }
 }

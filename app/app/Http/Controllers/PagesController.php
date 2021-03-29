@@ -27,11 +27,26 @@ class PagesController extends Controller
     public function status(Request $request){
         $person = $request->all();
 
+        $type_of_license =  $person['type'];
+        $type_of_license = str_replace('[', '', $type_of_license);
+        $type_of_license = str_replace(']', '', $type_of_license);
+        
+        $type_of_license = str_replace('"', '', $type_of_license);
+        $arr = explode(',', $type_of_license);
+        
+      
+
         $Citizen = Citizen::create($person);
  
         // fix this
       
         if($Citizen){
+
+            foreach($arr as $item) {
+              
+            }
+
+
             return view('learners.successful', ['msg1' => 'Registration Successful !',
             'msg2' => 'Check your email for details']);
         }
