@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Citizen;
+use App\Learner;
 use App\Instructor;
 
 class PagesController extends Controller
@@ -26,24 +27,22 @@ class PagesController extends Controller
 
     public function status(Request $request){
         $person = $request->all();
-
-        $type_of_license =  $person['type'];
-        $type_of_license = str_replace('[', '', $type_of_license);
-        $type_of_license = str_replace(']', '', $type_of_license);
         
-        $type_of_license = str_replace('"', '', $type_of_license);
-        $arr = explode(',', $type_of_license);
-        
-      
-
         $Citizen = Citizen::create($person);
  
         // fix this
       
         if($Citizen){
 
+            $type_of_license =  $person['type'];
+            $type_of_license = str_replace('[', '', $type_of_license);
+            $type_of_license = str_replace(']', '', $type_of_license);
+            
+            $type_of_license = str_replace('"', '', $type_of_license);
+            $arr = explode(',', $type_of_license);
+
             foreach($arr as $item) {
-              
+                Learner::create(['aadhar_no'=>$person['aadhar_no'],'type'=> $item]);
             }
 
 

@@ -23,6 +23,7 @@ class CreateLearnersTable extends Migration
             $table->date('issue_date')->nullable();
             $table->string('type', 12);
             $table->primary(['aadhar_no', 'type']);
+            $table->timestamps();
         });
     }
 
