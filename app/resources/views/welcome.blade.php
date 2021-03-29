@@ -10,11 +10,15 @@
 
 @section('content')
     <div class="sidenav">
-        <a href="learners/login/">Login</a>
+        <a href="loginmodule/login/">Login</a>
         <a href="learners/register/">Apply Learner's License</a>
         <a href="learners/renew">Renew Learner's License</a>
+
+        <a href="permanent_licence/permanent_license">Apply Driving License</a>
+
         <a href="learners/test/instructions/">Take a mock learner's test</a>
         <a href="permanent_license">Apply Driving License</a>
+
         <a href="#status">Application Status</a>
         <a href="#resources">Study Material</a>
         <hr>

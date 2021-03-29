@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ApplyRegistration extends Migration
+class CreateApplyRegsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class ApplyRegistration extends Migration
      */
     public function up()
     {
-        Schema::create('Apply_registration', function (Blueprint $table) {
+        Schema::create('apply__regs', function (Blueprint $table) {
             $table->id();
 			$table->string('name', 64);
-          
 			$table->string('Mobile', 10);
 			$table->string('email', 128);
 			$table->string('Chassis_Number', 17)->unique();
@@ -26,8 +25,7 @@ class ApplyRegistration extends Migration
 			$table->string('Fuel_type', 100);
 			$table->string('Dealer_Name', 256);
 			$table->string('Dealer_City', 128);
-		
-            $table->timestamps();
+            
         });
     }
 
@@ -38,6 +36,6 @@ class ApplyRegistration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Apply_registration');
+        Schema::dropIfExists('apply__regs');
     }
 }
