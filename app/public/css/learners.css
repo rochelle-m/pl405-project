@@ -93,3 +93,67 @@ ul p {
 ul p {
     font-size: large;
 }
+
+ul.question{
+    list-style-type: none;
+}
+
+.question li{
+    padding: 5px 0;
+} 
+
+.question input[type="radio"]{
+    margin: 0 10px;
+}
+
+.question-line{
+    font-size: 1.5em;
+}
+
+.test {
+    color: rgb(67, 67, 67);
+    padding: 0 4vmin;
+}
+
+.controls {
+    display: flex;
+    justify-content:flex-start;
+    color: white;
+    width: 50%;
+}
+
+.controls > button{
+    margin-left: 6vmin;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    opacity: 0.9;
+}
+
+.controls .next {
+    background-color: green;
+}
+
+.controls .skip {
+    background-color: rgb(166, 171, 3);
+}
+
+.controls button:hover{
+    opacity: 1; 
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 1.5vw;
+    height: 1.5vw;
+    padding: 3px;
+    background-clip: content-box;
+    border: 1px solid #bbbbbb;
+    background-color: #cdcdcd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background-color: #4d10a2;
+}
