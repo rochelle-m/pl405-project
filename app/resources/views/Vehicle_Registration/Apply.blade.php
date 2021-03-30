@@ -1,6 +1,6 @@
- <!DOCTYPE html>
- <html>
- 
+<!DOCTYPE html>
+<html>
+<body>
  
  <link
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
@@ -17,12 +17,10 @@
 
   <link rel="stylesheet" href="{{ asset('css/learners.css') }}"> 
   
-  <body>
- <div class="sidenav">
-         <div>
-          <a href="welcome.blade.php">Home</a>
-         </div>
-</div>
+<!-- create the form -->
+<form name="Form" method="post">
+@csrf
+<!-- Add the data entry bits -->
 <div class="container">
   <div class="body">
     <div class="col-lg-12 well form-container">
@@ -30,7 +28,7 @@
       <div class="row">
 	  
         <br>
-		<form action="pdf.blade.php" method="POST" id="form">
+		<form  method="POST" id="form">
          
           <div class="col-sm-12">
             <div class="row">
@@ -232,30 +230,55 @@
 			
 
             <p class="form-group" id="warning"></p>
-
-            
-
-            <div class="text-center">
+          <div class="text-center">
+            <INPUT type="submit" value="Apply" name=button1 onclick="return OnButton1()" id="applybtn";>
+<INPUT type="submit" value="PDF Create" name=button2 onclick="return OnButton2()" id="applybtn";>
+            <!--div class="text-center">
               <input
                 type="submit"
                 name="submit"
                 value="Apply"
                 id="applybtn"
               />
-            </div>
+            </div-->
+
+            
           </div>
-        </form>
+        
       </div>
     </div>
   </div>
 </div>
-		
-		 
+
+
+
+
+<!-- close the form -->
+</form>
+<script language="Javascript">
+<!--
+function OnButton1()
+{
+    document.Form1.action = "Apply/status"
+    document.Form1.target = "_blank";    // Open in a new window
+    document.Form1.submit();             // Submit the page
+    return true;
+}
+
+function OnButton2()
+{
+    document.Form1.action = "Apply/pdf"
+    document.Form1.target = "_blank";    // Open in a new window
+    document.Form1.submit();             // Submit the page
+    return true;
+}
+-->
+</script>
+<noscript>You need Javascript enabled for this to work</noscript>
+
 
 <script src="aadhar_helper.js"></script>
 <script type="text/javascript" src="{{ asset('scripts/checkbox_validations.js') }}"></script>
 <script type="text/javascript" src="{{ asset('scripts/aadhar_helper.js') }}"></script>
 </body>
 </html>
- 
-
