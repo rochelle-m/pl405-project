@@ -37,23 +37,25 @@
                   type="text"
                   id="aadharnumber"
                   name="aadhar_no"
-                  placeholder="Enter your Aadhar card number"
+                  placeholder="Enter your 12 digit Aadhar Card (UIDAI) number here"
                   class="form-control"
                   required=""
                   pattern="{12}"
                   onchange="checkValidation(this.value)"
                   oninput="checkAadhar(this.value)"
                 />
+                <div class="info">ⓘYour details will be auto-filled based on your Aadhar Card number</div>
               </div>
-            </div>
+            </div>            
             <div class="row">
               <div class="form-group">
+                
                 <label>Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Enter your name"
+                  placeholder="Full Name"
                   class="form-control"
                   required=""
                   pattern="^[a-zA-Z]+([\s][a-zA-Z]+)+$"
@@ -271,7 +273,7 @@
                   type="Password"
                   id="password"
                   name="password"
-                  placeholder="Enter password Here.."
+                  placeholder="Enter password"
                   class="form-control"
                   minlength="8"
                   required

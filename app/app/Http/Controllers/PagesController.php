@@ -46,13 +46,13 @@ class PagesController extends Controller
             }
 
 
-            return view('learners.successful', ['msg1' => 'Registration Successful !',
-            'msg2' => 'Check your email for details']);
+            return view('learners.successful', ['msg1' => 'Registration Successful!',
+            'msg2' => 'You will be redirected to the payments page']);
         }
         else{
 
             return view('learners.failed', ['msg1' => 'Oops! Registration Failed',
-            'msg2' => 'Sorry for the inconvinience. Please Try Again Later.', 
+            'msg2' => 'Sorry for the inconvinience. Please try again.', 
             'msg3' => '']);
         }
     }

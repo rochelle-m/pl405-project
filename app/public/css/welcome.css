@@ -14,12 +14,21 @@ body {
     padding-top: 20px;
 }
 
-.sidenav a {
+.sidenav a, dl {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 0.8em;
     color: #aeaeae;
     display: block;
+}
+
+dd {
+    font-size: 1.2em;
+    margin-left: 0em;
+}
+
+dl{
+    padding: 0px 8px 0px 16px;
 }
 
 .sidenav a:hover {
@@ -62,7 +71,6 @@ body {
     color: #c3c3c3;
     border-style: solid;
     border-color: #c3c3c3;
-    font-weight: bolder;
 }
 
 #submit {

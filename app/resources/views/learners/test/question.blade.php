@@ -4,6 +4,7 @@
     <div class="test">
         <form action="/api/next" method="POST">
             @csrf
+            <button name="quit" class="quit">Quit</button>
             <h2 class="question-line">{{$questions[$index]->question}}</h2>
             <ul class="question">
                 <input type="text" value={{$questions[$index]->id}} name="id" hidden>
