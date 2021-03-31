@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Citizen;
 use App\Learner;
 use App\Instructor;
+use DB;
 
 class PagesController extends Controller
 {
@@ -57,29 +58,27 @@ class PagesController extends Controller
         }
     }
 
+    public function get(Request $request){
+        return view('learners.test.instructions'); 
+    }
+
     public function index(Request $request){
-       
-        // mock test
-        if($request->method() == "GET"){
-            return view('learners.test.instructions');
-        }
-       
-        // check if instructor token is valid
+    
+        // * check if instructor token is valid
         if (!Instructor::where('id', $request['token'])->exists() ) {
             return view('learners.failed', ['msg1' => 'Unauthorized',
             'msg2' => 'Something went wrong']);
         }  
-        
-        // check if user password is correct
-        if(!Citizen::where('password', $request['password'])->exists()){
+
+        $aadhar_no = str_replace(' ', '', $request['aadhar_no']);
+    
+        if(strcmp(Citizen::where('aadhar_no', $aadhar_no)->value('password'), $request['password'])){
             return view('learners.failed', ['msg1' => 'Oops! Wrong password',
             'msg2' => 'Please check your credentials']);
         }
 
-        // if real test
-        $aadhar_no = str_replace(' ', '', $request['aadhar_no']);
-        $first_name = \DB::table('citizens')->where('aadhar_no', $aadhar_no)->value('first_name');
-        $last_name = \DB::table('citizens')->where('aadhar_no', $aadhar_no)->value('last_name');
+        $first_name = DB::table('citizens')->where('aadhar_no', $aadhar_no)->value('first_name');
+        $last_name = DB::table('citizens')->where('aadhar_no', $aadhar_no)->value('last_name');
        
         return view('learners.test.instructions', ["token" => $request['token'],  "aadhar_no" => $aadhar_no,"fname"=> $first_name, "lname" =>$last_name]);
     }
