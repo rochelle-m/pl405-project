@@ -3,56 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Codedge\Fpdf\Fpdf\Fpdf;
 
 class Apply_RegController extends Controller
 {
-    public function generate_pdf(){
+    public function generate_pdf(Request $request){
         date("d/m/Y");
-if(!empty($_POST['submit']));
-{
-	$name =$_POST['mob'];
-	$num =$_POST['mob'];
-    $add=$_POST['aadhar_no'];
-	$C =$_POST['Engine_Number'];
-	$Engine=$_POST['Engine_Number'];
-	$Model=$_POST['Model'];
-	$Company=$_POST['Company'];
-	$Color=$_POST['Color'];
-	$Fuel=$_POST['Fuel_type'];
-	$Dealer=$_POST['Dealer_Name'];
-	$DCity=$_POST['Dealer_City'];
-	$email=$_POST['email'];
+
+		$name = $request['mob'];
+		$num = $request['mob'];
+		$add= $request['aadhar_no'];
+		$C = $request['Engine_Number'];
+		$Engine= $request['Engine_Number'];
+		$Model= $request['Model'];
+		$Company= $request['Company'];
+		$Color= $request['Color'];
+		$Fuel= $request['Fuel_type'];
+		$Dealer= $request['Dealer_Name'];
+		$DCity= $request['Dealer_City'];
+		$email= $request['email'];
+
 	
-    
+		function generate_password()
+		{
+			$chars =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.
+				'0123456789$_';
+			$str = '';
+			$max = strlen($chars) - 1;
+			for ($i=0; $i < 10; $i++)
+				$str .= $chars[random_int(0, $max)];
+			return $str;
+		}
+		$pwd=generate_password();
+
+		$d=date("Y-m-d", strtotime("+1 week"));
+				$dayofweek = date('w', strtotime($d));
+			if($dayofweek == 'Sunday')
+			$d = date("Y-m-d", strtotime("+1 day"));
+   		$Cdate=date("Y-m-d");
 	
-	function generate_password()
-	{
-		$chars =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.
-            '0123456789$_';
-		$str = '';
-		$max = strlen($chars) - 1;
-		for ($i=0; $i < 10; $i++)
-			$str .= $chars[random_int(0, $max)];
-		return $str;
-	}
-	$pwd=generate_password();
+		$pdf = new FPDF();
+		$pdf ->AddPage();
+		
+		$pdf->SetFont('Arial','',11);
+		$pdf->Cell(0,15, 'RTO Registretion of vehical',0,1,'C');
 	
-	$d=date("Y-m-d", strtotime("+1 week"));
-         $dayofweek = date('w', strtotime($d));
-     if($dayofweek == 'Sunday')
-       $d = date("Y-m-d", strtotime("+1 day"));
-   $Cdate=date("Y-m-d");
-	require("fpdf/fpdf.php");
 	
-	$pdf = new FPDF();
-	$pdf ->AddPage();
-	
-	$pdf->SetFont('Arial','',11);
-	$pdf->Cell(0,15, 'RTO Registretion of vehical',0,1,'C');
-	
-	$pdf->image('favicon.png',10,10,33,0,'');
-	$pdf->image('click.png',175,10,33,0,'','status.blade.php');
-	$pdf->Cell(0,10, 'Check Status' ,0,1,'R');
+		$pdf->image('images/favicon.png',10,10,33,0,'');
+		// $pdf->image('click.png',175,10,33,0,'','status.blade.php');
+		$pdf->Cell(0,10, 'Check Status' ,0,1,'R');
 		$pdf->SetFont('Arial','',11);
 		$pdf->Ln(10);
 		$pdf->Cell(0,11, 'Application Number',0,1);
@@ -97,9 +96,6 @@ if(!empty($_POST['submit']));
 		$pdf->Cell(0,23, '--------------------Dealer Information---------------------------',0,1 ,'C');
 		$pdf->SetFont('Arial','',13);
 		
-		
-	
-		
 		$pdf->Cell(0,10, 'Dealer Name:-',0,1);
 		$pdf->Cell(0,10, $Dealer ,1,1);
 		
@@ -111,8 +107,10 @@ if(!empty($_POST['submit']));
 		$pdf->Cell(140,5,'',0,0);
 		$pdf->Cell(50,10,':Signature',0,1,'C');
 		$pdf->Cell(0,10,$d,0,1,'R');
-		$pdf->Cell(0,10,$Cdate,0,0,'L');
-		
-}   $pdf->output();
+		$pdf->Cell(0,10,$Cdate,0,0,'L');	   
+
+		$headers = array('Content-Type' => 'application/pdf');
+		$pdf->output();
     }
 }
+
