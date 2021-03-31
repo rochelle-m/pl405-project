@@ -3,28 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Question;
+use App\Questions;
+use App\Learner;
 use DB;
 
 class QuestionController extends Controller
 {
-    public function generate(Request $request){
-        if( $request->aadhar_no == null){
-            $questions = DB::select('SELECT id, question, option1,option2,option3,option4, correct FROM questions WHERE LEVEL = \'E\' ORDER BY rand() LIMIT 20');
-            return view('learners.test.question', ["questions"=> $questions, "index" => 0]);
-        }
+    public function get_questions(Request $request){
+        $questions = $questions = DB::table('questions')->
+          select('id', 'question', 'option1','option2','option3','option4', 'correct')->
+          where('level', 'E')->inRandomOrder()->limit(20)->
+          get()->all();
+        return view('learners.test.question', ["questions"=> $questions, "index" => 0]);
+    }
 
-        $types = DB::select('SELECT type from learners where aadhar_no = \''.$request['aadhar_no'].'\'');
-        $types2 = array();
-        foreach($types as $item){
-            array_push($types2, $item->type);
-        }
+    public function post_questions(Request $request){
         
-        array_walk($types2, function(&$x) {$x = "'$x'";});
-
-        $questions = DB::select("SELECT id, question, option1,option2,option3,option4, correct FROM questions WHERE LEVEL = 'D' AND category in (".implode(", ",$types2).")  ORDER BY rand() LIMIT 20");
-        
-        return view('learners.test.question', ["details" => $request->all(), "questions"=> $questions, "index" => 0]);
+        $types = Learner::where('aadhar_no', $request->aadhar_no)->pluck('type')->all();;   
+      
+        $questions = DB::table('questions')->
+          select('id', 'question', 'option1','option2','option3','option4', 'correct')->
+          where('level', 'D')->inRandomOrder()->limit(20)->
+          whereIn('category', explode (', ',implode(", ",$types)))->get()->all();
+       
+        return view('learners.test.question', 
+          ["details" => $request->all(), "questions"=> $questions, "index" => 0]);
     }
 
     public function next(Request $request){

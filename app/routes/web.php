@@ -38,11 +38,11 @@ Route::get('/learners/test/auth', function () {
 }); 
 
 Route::post('/learners/test/instructions', 'PagesController@index'); 
-Route::get('/learners/test/instructions', 'PagesController@index'); 
+Route::get('/learners/test/instructions', 'PagesController@get'); 
 
-Route::post('/learners/test', 'QuestionController@generate'); 
+Route::post('/learners/test', 'QuestionController@post_questions'); 
 
-Route::get('/learners/test', 'QuestionController@generate'); 
+Route::get('/learners/test', 'QuestionController@get_questions'); 
 
 Route::get('/loginmodule/login', function () {
     return view('loginmodule.login');
