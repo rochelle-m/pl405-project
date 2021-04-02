@@ -30,7 +30,7 @@
             <a href="learners/test/auth">Learners's Test<small> (restricted) </small></a>
         </div>
     
-        <div>
+        
             <header>
                 <h2>{{$title ?? ''}}</h2>
             </header>
@@ -40,7 +40,7 @@
             <footer>
                 <h2>Developed by Department Of Computer Science & Technology, Goa University</h2>
             </footer>  
-        </div>
+       
     </div>
 
 @endsection

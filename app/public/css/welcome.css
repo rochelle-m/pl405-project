@@ -8,13 +8,19 @@ body {
 .home {
     display: grid;
     grid-template-columns: 16% 84%;
+    grid-template-areas:
+    'sidebar header header header header header'
+    'sidebar main main main main main'
+    'sidebar footer footer footer footer footer'
 }
-
 .sidenav {
     background: rgb(22, 24, 29);
     padding: 20px 2px;
-    height: 100vh;
-    min-width: 15vh;
+    min-width: 16vh;
+    min-height: 100vh;
+    grid-row-start: 1;
+    grid-area: sidebar;
+    grid-row-end: 3;
 }
 
 .sidenav a,
@@ -24,7 +30,7 @@ a {
     text-decoration: none;
     color: white;
     transition: 0.2s linear;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     display: block;
 }
 
@@ -42,11 +48,15 @@ dl {
     padding: 0px 8px 0px 12px;
 }
 
+main {
+    grid-area: main;
+}
+
 main img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 40%;  
 }
 
 @media screen and (max-height: 450px) {
@@ -61,6 +71,9 @@ main img {
 header {
     font-size: 1.5vw;
     height: 80px;
+    position: relative;
+    width: 100%;
+    grid-area: header;
     text-align: center;
     background: rgb(22, 24, 29);
 }
@@ -72,12 +85,9 @@ header h2 {
 
 footer {
     padding: 1vw 0;
-    bottom: 0;
     text-align: center;
+    grid-area: footer;
     background: rgb(22, 24, 29);
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
 
 footer h2 {
@@ -87,6 +97,7 @@ footer h2 {
 
 #submit {
     color: white;
+    background: rgb(22, 24, 29);
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
