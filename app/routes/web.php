@@ -25,9 +25,9 @@ Route::get('/learners/renew', function () {
     return view('learners.renew');
 }); 
 
-Route::post('/learners/register/upload', 'PagesController@gate'); 
+Route::post('/learners/register/upload', 'CitizenController@gate'); 
 
-Route::post('/learners/register/upload/status', 'PagesController@register'); 
+Route::post('/learners/register/upload/status', 'CitizenController@register'); 
 
 Route::get('/learners/payment', function () {
     return view('learners.payment');
