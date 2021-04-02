@@ -10,7 +10,7 @@ use DB;
 
 class PagesController extends Controller
 {
-    public function register(Request $request){
+    public function gate(Request $request){
         $person = $request->all();
 
         if(Citizen::where('email', $person['email'] )->exists()){
@@ -26,9 +26,8 @@ class PagesController extends Controller
         return view('learners.upload', ['person' => $person]);
     }
 
-    public function status(Request $request){
+    public function register(Request $request){
         $person = $request->all();
-        
         $Citizen = Citizen::create($person);
  
         // fix this
@@ -58,29 +57,30 @@ class PagesController extends Controller
         }
     }
 
-    public function get(Request $request){
+    public function mock(Request $request){
         return view('learners.test.instructions'); 
     }
 
-    public function index(Request $request){
+    public function final(Request $request){
     
-        // * check if instructor token is valid
-        if (!Instructor::where('id', $request['token'])->exists() ) {
-            return view('learners.failed', ['msg1' => 'Unauthorized',
-            'msg2' => 'Something went wrong']);
-        }  
-
         $aadhar_no = str_replace(' ', '', $request['aadhar_no']);
-    
-        if(strcmp(Citizen::where('aadhar_no', $aadhar_no)->value('password'), $request['password'])){
+        if(strcmp(Citizen::find($aadhar_no)->password, $request['password'])){
             return view('learners.failed', ['msg1' => 'Oops! Wrong password',
             'msg2' => 'Please check your credentials']);
         }
 
-        $first_name = DB::table('citizens')->where('aadhar_no', $aadhar_no)->value('first_name');
-        $last_name = DB::table('citizens')->where('aadhar_no', $aadhar_no)->value('last_name');
+        $instructor  = Instructor::find($request['token']);
+        if ($instructor == null) {
+            return view('learners.failed', ['msg1' => 'Unauthorized',
+            'msg2' => 'Something went wrong']);
+        }  
+
+        $name = Citizen::find($aadhar_no)->getFullNameAttribute();
        
-        return view('learners.test.instructions', ["token" => $request['token'],  "aadhar_no" => $aadhar_no,"fname"=> $first_name, "lname" =>$last_name]);
+        return view('learners.test.instructions', [
+            "token" => $request['token'],  
+            "aadhar_no" => $aadhar_no, 
+            "name"=> $name]);
     }
     
 }

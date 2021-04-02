@@ -25,9 +25,9 @@ Route::get('/learners/renew', function () {
     return view('learners.renew');
 }); 
 
-Route::post('/learners/register/upload', 'PagesController@register'); 
+Route::post('/learners/register/upload', 'PagesController@gate'); 
 
-Route::post('/learners/register/upload/status', 'PagesController@status'); 
+Route::post('/learners/register/upload/status', 'PagesController@register'); 
 
 Route::get('/learners/payment', function () {
     return view('learners.payment');
@@ -37,8 +37,8 @@ Route::get('/learners/test/auth', function () {
     return view('learners.test.auth');
 }); 
 
-Route::post('/learners/test/instructions', 'PagesController@index'); 
-Route::get('/learners/test/instructions', 'PagesController@get'); 
+Route::post('/learners/test/instructions', 'PagesController@final'); 
+Route::get('/learners/test/instructions', 'PagesController@mock'); 
 
 Route::post('/learners/test', 'QuestionController@post_questions'); 
 
