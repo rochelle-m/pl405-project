@@ -58,3 +58,4 @@ Route::get('/Vehicle_Registration/Apply/pdf', function () {
     return view('Vehicle_Registration.Apply.pdf');
 });
  
+Route::post('/home',"CitizenController@login");
