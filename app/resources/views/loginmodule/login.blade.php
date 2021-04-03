@@ -22,7 +22,7 @@
     <div class="col-lg-12 well form-container">
       <h1 class="title">Log in</h1>
       <div class="row">
-        <form method="get" action="/home" id="form">
+        <form method="post" action="/home" id="form">
           @csrf
           <div class="col-sm-12">
               <div class="row">

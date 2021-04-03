@@ -46,7 +46,7 @@ rel="stylesheet"
                   After you finish the test, your percentage and result will be displayed
               </li>
               <p>
-                  All the best {{$fname ?? ''}} {{ $lname ?? ''}}
+                  All the best {{$name ?? ''}}
               </p>
             </ul>
         </div>

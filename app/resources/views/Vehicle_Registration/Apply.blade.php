@@ -18,8 +18,6 @@
   <link rel="stylesheet" href="{{ asset('css/learners.css') }}"> 
   
 <!-- create the form -->
-<form name="Form" method="post">
-@csrf
 <!-- Add the data entry bits -->
 <div class="container">
   <div class="body">
@@ -28,8 +26,9 @@
       <div class="row">
 	  
         <br>
-		<form  method="POST" id="form">
+        <form  method="POST" id="form" action="Apply/pdf">
          
+          @csrf
           <div class="col-sm-12">
             <div class="row">
               <div class="form-group">
@@ -231,8 +230,8 @@
 
             <p class="form-group" id="warning"></p>
           <div class="text-center">
-            <INPUT type="submit" value="Apply" name=button1 onclick="return OnButton1()" id="applybtn";>
-<INPUT type="submit" value="PDF Create" name=button2 onclick="return OnButton2()" id="applybtn";>
+            <INPUT type="submit" value="Apply" name=button1id="applybtn";>
+<INPUT type="submit" value="PDF Create" name=button2  id="applybtn";>
             <!--div class="text-center">
               <input
                 type="submit"
