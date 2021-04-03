@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Citizen;
 use App\Learner;
 use App\Instructor;
@@ -17,11 +18,12 @@ class PagesController extends Controller
     public function final(Request $request){
     
         $aadhar_no = str_replace(' ', '', $request['aadhar_no']);
-        if(strcmp(Citizen::find($aadhar_no)->password, $request['password'])){
+        $hashedPassword = Citizen::find($aadhar_no)->password;
+        if (!Hash::check($request['password'], $hashedPassword)) {
             return view('learners.failed', ['msg1' => 'Oops! Wrong password',
             'msg2' => 'Please check your credentials']);
         }
-
+        
         $instructor  = Instructor::find($request['token']);
         if ($instructor == null) {
             return view('learners.failed', ['msg1' => 'Unauthorized',

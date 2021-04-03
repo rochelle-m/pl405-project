@@ -46,11 +46,11 @@ class CitizenController extends Controller
 
     public function register(Request $request){
         $person = $request->all();
-        $Citizen = Citizen::create($person);
+        $citizen = Citizen::new($person);
  
         // fix this
       
-        if($Citizen){
+        if($citizen){
 
             $type_of_license =  $person['type'];
             $type_of_license = str_replace('[', '', $type_of_license);
