@@ -9,7 +9,11 @@
             <ul class="question">
                 <input type="text" value={{$questions[$index]->id}} name="id" hidden>
                 <input type="text" value={{$index + 1}}  name="index" hidden>
-                <img src={{$questions[$index]->img ?? ''}}  alt="" hidden>
+
+                @if ($questions[$index]->img != '?')
+                    <img src={{$questions[$index]->img ?? ''}}  alt="sign" style="width:20%;">
+                @endif
+
                 <li><input type="radio" name="answer" value="1">{{$questions[$index]->option1}}</li>
                 <li><input type="radio" name="answer" value="2">{{$questions[$index]->option2}}</li>
                 <li><input type="radio" name="answer" value="3">{{$questions[$index]->option3}}</li>
@@ -21,7 +25,11 @@
     
             <div class="controls">
                 <button class="skip" name="skip">Skip</button>
-                <button class="next" name="next"">Next</button>
+                @if ($index != 20)
+                    <button class="next" name="next">Next</button>       
+                @else
+                    <button class="next" name="next">Finish</button>           
+                @endif
             </div>
         </form>
     </div>
