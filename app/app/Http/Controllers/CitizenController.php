@@ -7,6 +7,8 @@ use Illuminate\Http\Request\CitizenExists;
 use App\Citizen;
 use App\Learner;
 use App\Http\Resources\Citizen as CitizenResource;
+use Illuminate\Support\Facades\Hash;
+
 
 class CitizenController extends Controller
 {
@@ -27,6 +29,24 @@ class CitizenController extends Controller
             'exists' => Citizen::where('aadhar_no',str_replace(' ', '', $request['aadhar_no']))->exists()
         ]);         
     }
+
+    public function login(Request $request)
+{
+    $password = \DB::table('citizens')->where('email','email')->value('password');
+    
+     $email = $request->input('email');
+     $password = $request->input('password');
+
+     $user = Citizen::where('email', '=', $email)->first();
+     if (!$user) {
+        return view('loginmodule.login');
+     }
+     if (!Hash::check($password, $user->password)) {
+        return view('loginmodule.login');
+        // response()->json(['success'=>false]);
+     }
+        return view('loginmodule.home');
+}
 
     public function gate(Request $request){
         $person = $request->all();
@@ -71,5 +91,6 @@ class CitizenController extends Controller
             'msg3' => '']);
         }
     }
+
 
 }
