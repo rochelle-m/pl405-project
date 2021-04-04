@@ -1,16 +1,27 @@
 @extends('learners.test.test')
+@section('refresh')
+    {{-- <meta http-equiv="refresh" content="30;url=http://localhost:8000/learners/test"> --}}
+@endsection
 
 @section('question')
     <div class="test">
-        <form action="/api/next" method="POST">
+
+        <p hidden>
+            {{ $index = Session::has('test') ? Session::get('test')->getIndex() : '' }} 
+
+        </p>
+        <p>{{ $index + 1 }} / {{ Session::get('test')->getCount() }}</p>
+    
+        <form action="" method="POST">           
             @csrf
+
             <button name="quit" class="quit">Quit</button>
             <h2 class="question-line">{{$questions[$index]->question}}</h2>
             <ul class="question">
                 <input type="text" value={{$questions[$index]->id}} name="id" hidden>
                 <input type="text" value={{$index + 1}}  name="index" hidden>
-
-                @if ($questions[$index]->img != '?')
+            
+                @if (isset($questions[$index]->img))
                     <img src={{$questions[$index]->img ?? ''}}  alt="sign" style="width:20%;">
                 @endif
 
@@ -25,10 +36,10 @@
     
             <div class="controls">
                 <button class="skip" name="skip">Skip</button>
-                @if ($index != 20)
-                    <button class="next" name="next">Next</button>       
+                @if ($index < Session::get('test')->getCount() - 1)
+                    <button class="next" name="next" value="next" >Next</button>       
                 @else
-                    <button class="next" name="next">Finish</button>           
+                    <button class="finish" name="finish" value="finish">Finish</button>           
                 @endif
             </div>
         </form>

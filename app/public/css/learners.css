@@ -134,6 +134,10 @@ ul.question{
     background-color: green;
 }
 
+.controls .finish {
+    background-color: rgb(0, 101, 0);
+}
+
 .controls .skip {
     background-color: rgb(166, 171, 3);
 }
