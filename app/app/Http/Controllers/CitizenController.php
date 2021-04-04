@@ -7,6 +7,8 @@ use Illuminate\Http\Request\CitizenExists;
 use App\Citizen;
 use App\Learner;
 use App\Http\Resources\Citizen as CitizenResource;
+use Illuminate\Support\Facades\Hash;
+
 
 class CitizenController extends Controller
 {
@@ -37,12 +39,13 @@ class CitizenController extends Controller
 
      $user = Citizen::where('email', '=', $email)->first();
      if (!$user) {
-        return response()->json(['success'=>false, 'message' => 'Login Fail, please check email id']);
+        return view('loginmodule.login');
      }
      if (!Hash::check($password, $user->password)) {
-        return response()->json(['success'=>false, 'message' => 'Login Fail, pls check password']);
+        return view('loginmodule.login');
+        // response()->json(['success'=>false]);
      }
-        return response()->json(['success'=>true,'message'=>'success', 'data' => $user]);
+        return view('loginmodule.home');
 }
 
     public function gate(Request $request){
