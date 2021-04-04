@@ -1,6 +1,5 @@
 <html>
   <head>
-    <meta http-equiv="refresh" content="5;url=http://localhost:8000/learners/payment">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
      <link href="{{asset('css/success.css')}}" rel="stylesheet">
   </head>

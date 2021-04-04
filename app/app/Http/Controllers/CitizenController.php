@@ -62,10 +62,7 @@ class CitizenController extends Controller
             foreach($arr as $item) {
                 Learner::create(['aadhar_no'=>$person['aadhar_no'],'type'=> $item]);
             }
-
-
-            return view('learners.successful', ['msg1' => 'Registration Successful!',
-            'msg2' => 'You will be redirected to the payments page']);
+            return view('learners.payment');
         }
         else{
 
