@@ -39,10 +39,10 @@ class CitizenController extends Controller
 
      $user = Citizen::where('email', '=', $email)->first();
      if (!$user) {
-        return view('loginmodule.login');
+        return view('loginmodule.login',['msg1' => 'Oops! Login failed.']);
      }
      if (!Hash::check($password, $user->password)) {
-        return view('loginmodule.login');
+        return view('loginmodule.login',['msg1' => 'Oops! Login failed.']);
         // response()->json(['success'=>false]);
      }
         return view('loginmodule.home');
