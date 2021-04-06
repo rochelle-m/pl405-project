@@ -13,33 +13,44 @@ use Lang;
 class QuestionController extends Controller
 {
     public function get_questions(Request $request){
-
+      
       $test = Test::createMockTest();
 
       $request->session()->put('test', $test);
       $request->session()->save();
+      dd($test);
 
       return view('learners.test.question', ["questions"=> $test->getQuestions(), 'test' => $test]);
     }
 
-    public function post_questions(Request $request){
-      if(Session::has('test') ){
-       
-        $test = Session::get('test');
+    public function post_questions(Request $request){ 
+
+      $test = Session::get('test');
+
+      if($test){
+        
         
         $test->incrementIndex();
-        $test->updateScore($request['id'], $request['answer']);
+        
+        if(isset($request['next'])){
+          $test->updateScore($request['id'], $request['answer']);
+        }
         
         if(isset($request['finish'])){
+          $test->updateScore($request['id'], $request['answer']);
           $test->setFinish();
-          $request->session()->flush();
 
+          $request->session()->forget('test');
+          $request->session()->save();
+          
           $view = $test->getResultView();
-
+          
           $score = $test->getScore().'/'.$test->getCount();
-
+          
           return view('learners.'.$view, ['msg1' => Lang::get('response.'.$view.'.msg1').$score]);
         }
+        $request->session()->forget('test');
+        $request->session()->save();
         return view('learners.test.question', 
           ["details" => $request->all(), "questions"=> $test->getQuestions()]);
       }

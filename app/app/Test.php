@@ -5,6 +5,8 @@ namespace App;
 
 use Illuminate\Http\Request;
 use App\Questions;
+use App\Learner;
+Use \Carbon\Carbon;
 use DB;
 
 class Test {
@@ -61,6 +63,13 @@ class Test {
     public function getQuestions(){
         return $this->questions;
     }
+
+    public function saveResults($result){
+        if($this->aadhar_no != null){
+            Learner::where('aadhar_no', $this->aadhar_no)->
+            update(['issue_date' => Carbon::now()->format('Y-m-d'), 'status' => $result]);
+        }
+    }
     
     public function getIndex(){
         return $this->index;
@@ -77,8 +86,10 @@ class Test {
     public function getResultView(){
         $percentage = $this->getScore()/$this->getCount() * 100;
         if($percentage > 74){
+            $this->saveResults("Passed");
             return "successful";
         }
+        $this->saveResults("Failed");
         return "failed";
     }
 

@@ -35,11 +35,14 @@
             <br>
     
             <div class="controls">
-                <button class="skip" name="skip">Skip</button>
-                @if ($index < Session::get('test')->getCount() - 1)
+                @if ($index < Session::get('test')->getCount() - 1){
+                    <button class="skip" name="skip">Skip</button>
                     <button class="next" name="next" value="next" >Next</button>       
-                @else
+                }
+                @else{
+                    <button class="skip" name="skip" disabled></button>
                     <button class="finish" name="finish" value="finish">Finish</button>           
+                }
                 @endif
             </div>
         </form>
