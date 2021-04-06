@@ -22,25 +22,31 @@ class Test {
     }
 
     /**
-     * Create a new test with applicant's aadhar no
+     * Create a new test with applicant's aadhar no and questions
      * @param $questions, $aadhar_no
      * @return Test
      */
-    public static function createRealTest($aadhar_no, $questions) {
-        $instance = new self($questions);
+    public static function createRealTest($aadhar_no, $types) {
+        $instance = new self();
         $instance->aadhar_no = $aadhar_no;
-        $instance->questions = $questions;
+        $instance->questions = DB::table('questions')->
+            select('id', 'img', 'question', 'option1','option2','option3','option4')->
+            where('level', 'D')->inRandomOrder()->limit(20)->
+            whereIn('category', explode (', ',implode(", ",$types)))->get()->all();
         return $instance;
     }
 
     /**
-     * Create a new mock test
+     * Create a new mock test with questions
      * @param  $questions
      * @return Test
      */
-    public static function createMockTest($questions) {
-        $instance = new self($questions);
-        $instance->questions = $questions;
+    public static function createMockTest() {
+        $instance = new self();
+        $instance->questions = DB::table('questions')->
+        select('id', 'img', 'question', 'option1','option2','option3','option4')->
+        where('level', 'E')->inRandomOrder()->limit(20)->
+        get()->all();
         return $instance;
     }
 
@@ -64,12 +70,28 @@ class Test {
         return $this->score;
     } 
 
+    /**
+     * Percentage of score is calculated and success or failure string is conditionally returned
+     * @return string
+     */
+    public function getResultView(){
+        $percentage = $this->getScore()/$this->getCount() * 100;
+        if($percentage > 74){
+            return "successful";
+        }
+        return "failed";
+    }
+
+    /**
+     * answer is checked and score is changed accordingly
+     * @param $id, $answer
+     * @return string
+     */
     public function updateScore($id, $answer){
         if(!$this->finish){
             $correct = Questions::find($id)->correct == $answer;
             $this->score += +$correct;
-        }
-        
+        }     
     }
 
     public function incrementIndex(){
