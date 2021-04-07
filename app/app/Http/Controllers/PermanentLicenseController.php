@@ -12,7 +12,7 @@ class PermanentLicenseController extends Controller
     public function apply(Request $request)
     {
 
-    	{
+    	
 
 	    	$i_aadhar_no = $request['aadhar_no'];
 	    	$i_license_no = $request['license_no'];
@@ -23,30 +23,23 @@ class PermanentLicenseController extends Controller
 	      			where('aadhar_no', $i_aadhar_no);
 
 	      		if($i_license_no == $license_no){
-	      			Citizen::create([
+	      			permanent_license::create([
 				        'aadhar_no' => $request['aadhar_no'],
 				        'license_no' => $request['license_no'],
 				        'vehicle_type' => $request['type'],
-				         ]);
+				    ]);
 
-			   			return view('permanent_license.exam_date');
+			   		return view('permanent_license.exam_date');
 	      		}
 
 
 	    	}
 	    	
 	    	
-	      //$user = Citizen::where('adhar_no', $i_aadhar_no)->learner_license()
-	    
-	   		
-   		}
-
-      
-
-       {  
-	  		// return view('learners.failed', ['msg1' => 'Oops! Application Failed',
-	    //         'msg2' => 'Kindly enter valid credentials and try again.']);
-  		}
+	      
+	  		return view('learners.failed', ['msg1' => 'Oops! Application Failed',
+	            'msg2' => 'Kindly enter valid credentials and try again.']);
+  		
     }
 
 
