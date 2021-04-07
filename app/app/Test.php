@@ -121,7 +121,7 @@ class Test {
 
     private function generate_pdf(){
 		$pdf = new FPDF();
-		$pdf ->AddPage();
+		$pdf->AddPage();
 		
 		$pdf->SetFont('Arial','',11);
 		$pdf->Cell(0,15, 'Road Transport Services',0,1,'C');
@@ -136,7 +136,6 @@ class Test {
         $pdf->Cell(0,10, 'Passed',0,1,'R');
 		$pdf->Ln(10);
 
-
         $pdf->SetTextColor(0,0,0);
 		$pdf->Cell(0,10, 'Issue Date:    '.Carbon::now()->format('d-m-Y'),0,1);
 		$pdf->Cell(0,11, 'Aadhar Number:   '.$this->aadhar_no,0,1);	
@@ -144,7 +143,6 @@ class Test {
 		
 		$pdf->Cell(0,10, 'License Number:  ', Citizen::find($this->aadhar_no)->getLLicenseNo(),0,1);
 
-		array('Content-Type' => 'application/pdf');
 		$pdf->output();
     }
 

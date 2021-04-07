@@ -8,9 +8,15 @@
 
         <p hidden>
             {{ $index = Session::has('test') ? Session::get('test')->getIndex() : '' }} 
-
         </p>
-        <p>{{ $index + 1 }} / {{ Session::get('test')->getCount() }}</p>
+
+        <div class="progress-bar1" >
+            <div class="progress1" style="width:{{ ($index)/Session::get('test')->getCount()*100 }}%;">
+
+            </div>
+        </div>
+
+        <p class="progress">{{ $index + 1 }} / {{ Session::get('test')->getCount() }}</p>
     
         <form action="" method="POST">           
             @csrf
@@ -37,10 +43,10 @@
             <div class="controls">
                 @if ($index < Session::get('test')->getCount() - 1){
                     <button class="skip" name="skip">Skip</button>
-                    <button class="next" name="next" value="next" >Next</button>       
+                    <button class="next" name="next" value="next" style="width: 30%;">Next</button>       
                 }
                 @else{
-                    <button class="finish" name="finish" value="finish">Finish</button>           
+                    <button class="finish" name="finish" value="finish" style="width: 80%;">Finish</button>           
                 }
                 @endif
             </div>
