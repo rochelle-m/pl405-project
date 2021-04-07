@@ -13,7 +13,7 @@ class Citizen extends Model
     protected $fillable = [
         'first_name', 'middle_name', 'last_name', 'aadhar_no', 
         'email', 'gender', 'street', 'photo', 'signature',
-        'pincode', 'date_of_birth', 'phone_number', 'password'
+        'pincode', 'date_of_birth', 'phone_number', 'password', 'llicense_no'
     ];
 
     public function getFullNameAttribute()
@@ -21,7 +21,17 @@ class Citizen extends Model
         return "{$this->first_name} {$this->last_name}";
     }
 
-    // protected $hidden = ['password'];
+    public function getLLicenseNo()
+    {
+        return "{$this->llicense_no}";
+    }
+
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    protected $hidden = ['password'];
 
     public static function new($data) {
         return Citizen::create([
@@ -39,6 +49,7 @@ class Citizen extends Model
             'signature' => $data['signature'],
             'photo' => $data['photo'],
             'password' => Hash::make($data['password']),
+            'llicense_no' => ''
         ]);
     }
     
