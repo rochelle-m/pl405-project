@@ -3,7 +3,7 @@
 @section('content')
     
 <header>
-    <h2>Road Transport Service Application</h2>
+    <h2> <a href="/">Road Transport Service Application</a>  </h2>
 </header>
 <main style="color: black; margin-top: 20px;">
   <?php 
