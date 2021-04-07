@@ -5,6 +5,9 @@ namespace App;
 
 use Illuminate\Http\Request;
 use App\Questions;
+use App\Learner;
+use App\Citizen;
+Use \Carbon\Carbon;
 use DB;
 
 class Test {
@@ -33,6 +36,7 @@ class Test {
             select('id', 'img', 'question', 'option1','option2','option3','option4')->
             where('level', 'D')->inRandomOrder()->limit(20)->
             whereIn('category', explode (', ',implode(", ",$types)))->get()->all();
+
         return $instance;
     }
 
@@ -61,6 +65,20 @@ class Test {
     public function getQuestions(){
         return $this->questions;
     }
+
+    private function saveResults($result){
+        if($this->aadhar_no != null){
+            Learner::where('aadhar_no', $this->aadhar_no)->
+            update(['issue_date' => Carbon::now()->format('Y-m-d'), 'status' => $result]);
+
+            if(!strcmp($result, 'Passed')){
+                $citizen = Citizen::find($this->aadhar_no);
+                $citizen->update(['llicense_no' => "2021"+substr($this->aadhar_no, -2) ]);
+                $citizen->save();
+            }
+
+        }
+    }
     
     public function getIndex(){
         return $this->index;
@@ -77,8 +95,10 @@ class Test {
     public function getResultView(){
         $percentage = $this->getScore()/$this->getCount() * 100;
         if($percentage > 74){
+            $this->saveResults("Passed");
             return "successful";
         }
+        $this->saveResults("Failed");
         return "failed";
     }
 

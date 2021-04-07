@@ -7,7 +7,7 @@ function checkValidation(aadhar_no) {
 }
 
 function isLength12(len) {
-    return len == 14;
+    return len == 14 || len == 12;
 }
 
 function containsAllNumericChar(aadhar_no) {
@@ -85,7 +85,7 @@ async function checkAadhar(aadharCardNumber) {
 
 async function fetchAadharDetails(aadharCardNumber) {
     const URL = "http://127.0.0.1:8001"
-    const res = await fetch(`http://127.0.0.1:8001/find/${aadharCardNumber}/`);
+    const res = await fetch(`${URL}/find/${aadharCardNumber}/`);
     return await res.json();
 }
 

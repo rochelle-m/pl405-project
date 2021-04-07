@@ -21,8 +21,8 @@ rel="stylesheet"
 
 @section('content')
 <div class="container">
-    <div class="body">
-      <div class="col-lg-12 well form-container">
+    <div class="body" >
+      <div class="col-lg-12 well form-container" >
         <h1 class="title">Test Instructions</h1>
         <div class="row">
             <ul class="instructions">

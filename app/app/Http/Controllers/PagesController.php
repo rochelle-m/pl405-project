@@ -12,11 +12,15 @@ use DB;
 class PagesController extends Controller
 {
     public function mock(Request $request){
+        $request->session()->forget('test');
+        $request->session()->save();
         return view('learners.test.instructions'); 
     }
 
     public function final(Request $request){
-    
+        $request->session()->forget('test');
+        $request->session()->save();
+        
         $aadhar_no = str_replace(' ', '', $request['aadhar_no']);
         $hashedPassword = Citizen::find($aadhar_no)->password;
         if (!Hash::check($request['password'], $hashedPassword)) {
