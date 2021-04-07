@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 namespace App;
 
+use Codedge\Fpdf\Fpdf\Fpdf;
 use Illuminate\Http\Request;
 use App\Questions;
 use App\Learner;
@@ -71,10 +72,10 @@ class Test {
             Learner::where('aadhar_no', $this->aadhar_no)->
             update(['issue_date' => Carbon::now()->format('Y-m-d'), 'status' => $result]);
 
-            if(!strcmp($result, 'Passed')){
-                $citizen = Citizen::find($this->aadhar_no);
-                $citizen->update(['llicense_no' => "2021"+substr($this->aadhar_no, -2) ]);
-                $citizen->save();
+            if(!strcmp($result, 'Passed')){  
+                Citizen::where('aadhar_no', $this->aadhar_no)->first()->
+                update(['llicense_no' => Carbon::now()->year.$this->aadhar_no, -2 ]);
+                $this->generate_pdf();
             }
 
         }
@@ -116,6 +117,35 @@ class Test {
 
     public function incrementIndex(){
         $this->index += 1;
+    }
+
+    private function generate_pdf(){
+		$pdf = new FPDF();
+		$pdf ->AddPage();
+		
+		$pdf->SetFont('Arial','',11);
+		$pdf->Cell(0,15, 'Road Transport Services',0,1,'C');
+        $pdf->Cell(0,15, 'e-Learner License',0,1,'C');
+        $pdf->Line(50, 45, 210-50, 45);
+        $pdf->Ln(10);
+
+		$pdf->image('images/favicon.png',10,10,33,0,'');
+		$pdf->SetFont('Arial','',11);
+        
+        $pdf->SetTextColor(0,250,0);
+        $pdf->Cell(0,10, 'Passed',0,1,'R');
+		$pdf->Ln(10);
+
+
+        $pdf->SetTextColor(0,0,0);
+		$pdf->Cell(0,10, 'Issue Date:    '.Carbon::now()->format('d-m-Y'),0,1);
+		$pdf->Cell(0,11, 'Aadhar Number:   '.$this->aadhar_no,0,1);	
+		$pdf->Cell(0,11, 'Name:   '.Citizen::find($this->aadhar_no)->getFullNameAttribute(),0,1);
+		
+		$pdf->Cell(0,10, 'License Number:  ', Citizen::find($this->aadhar_no)->getLLicenseNo(),0,1);
+
+		array('Content-Type' => 'application/pdf');
+		$pdf->output();
     }
 
 }
