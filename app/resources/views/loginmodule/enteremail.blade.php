@@ -45,8 +45,12 @@
                   name="resetpassword"
                   value="Reset"
                   id="submitbtn"
-                  onclick="resetpassword();"
+                  onclick="emailcheck();"
                 />
+              </div>
+
+              <div>
+                <h1>{{$msg1 ?? ''}}</h1>
               </div>
 
 

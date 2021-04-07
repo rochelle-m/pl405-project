@@ -92,5 +92,22 @@ class CitizenController extends Controller
         }
     }
 
+ public function emailcheck(Request $request)
+{
+    $password = \DB::table('citizens')->where('email','email')->value('password');
+    
+     $email = $request->input('email');
+     //$password = $request->input('password');
+
+     $user = Citizen::where('email', '=', $email)->first();
+     if (!$user) {
+        return view('loginmodule.enteremail',['msg1' => 'Oops! Email dose not exist']);
+     }
+     // if (!Hash::check($password, $user->password)) {
+     //    return view('loginmodule.login',['msg1' => 'Oops! Login failed.']);
+     //    // response()->json(['success'=>false]);
+     // }
+        return view('loginmodule.enteremail',['msg1' => 'Password reset link send to your mail']);
+}
 
 }
