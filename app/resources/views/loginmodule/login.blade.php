@@ -57,7 +57,7 @@
 
            
               <a class="forgotpassword" 
-                href="/enteremail">
+                href="/email">
                   Forgot password?
               </a>
               <br>
