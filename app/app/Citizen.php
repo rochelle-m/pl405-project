@@ -21,7 +21,7 @@ class Citizen extends Model
         return "{$this->first_name} {$this->last_name}";
     }
 
-    protected $hidden = ['password'];
+    // protected $hidden = ['password'];
 
     public static function new($data) {
         return Citizen::create([

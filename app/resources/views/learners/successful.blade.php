@@ -11,6 +11,7 @@
       </div>
         <h1>{{$msg1 ?? 'Successful'}}</h1> 
         <p><br/>{{$msg2 ?? ''}}</p>
+        <button> <a href="/">Back to home</a></button>
       </div>
     </body>
 </html>

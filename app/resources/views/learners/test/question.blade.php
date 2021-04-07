@@ -40,7 +40,6 @@
                     <button class="next" name="next" value="next" >Next</button>       
                 }
                 @else{
-                    <button class="skip" name="skip" disabled></button>
                     <button class="finish" name="finish" value="finish">Finish</button>           
                 }
                 @endif
