@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request; 
 use DB; use App\User; 
 use Hash; 
+use App\Citizen;
 
 class ResetPasswordController extends Controller { 
 
@@ -29,7 +30,7 @@ class ResetPasswordController extends Controller {
   if(!$updatePassword)
       return back()->withInput()->with('error', 'Invalid token!');
 
-    $user = User::where('email', $request->email)
+    $user = Citizen::where('email', $request->email)
                 ->update(['password' => Hash::make($request->password)]);
 
     DB::table('password_resets')->where(['email'=> $request->email])->delete();
