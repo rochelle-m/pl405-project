@@ -16,6 +16,14 @@ class Citizen extends Model
         'pincode', 'date_of_birth', 'phone_number', 'password', 'llicense_no'
     ];
 
+    /**
+     * Helper function, trim aadhar number
+     */
+    public static function getTrimmedAadharNo($aadhar_no)
+    {
+        return str_replace(' ', '', $aadhar_no);
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
@@ -34,6 +42,14 @@ class Citizen extends Model
     protected $hidden = ['password'];
 
     public static function new($data) {
+        
+   
+        $file1 = $data['photo'];
+        $file2 = $data['signature'];
+
+        $photo = $file1->openFile()->fread($file1->getSize());
+        $signature = $file2->openFile()->fread($file2->getSize());
+        
         return Citizen::create([
             'first_name' => $data['first_name'],
             'middle_name' => $data['middle_name'],
@@ -46,8 +62,8 @@ class Citizen extends Model
             'date_of_birth' => $data['date_of_birth'],
             'type' => $data['type'],
             'gender' => $data['gender'],
-            'signature' => $data['signature'],
-            'photo' => $data['photo'],
+            'signature' => $signature,
+            'photo' => $photo,
             'password' => Hash::make($data['password']),
             'llicense_no' => ''
         ]);

@@ -10,10 +10,11 @@ use App\Learner;
 use App\Citizen;
 Use \Carbon\Carbon;
 use DB;
+use App\URL;
 
 class Test {
     private $score = 0;
-    private $questions;
+    private $questions; /** @var array */
     private $aadhar_no; 
     private $index = 0;
     private $finish = false;
@@ -27,7 +28,7 @@ class Test {
 
     /**
      * Create a new test with applicant's aadhar no and questions
-     * @param $questions, $aadhar_no
+     * @param $aadhar_no, $types (type of learner's license)
      * @return Test
      */
     public static function createRealTest($aadhar_no, $types) {
@@ -74,8 +75,10 @@ class Test {
 
             if(!strcmp($result, 'Passed')){  
                 Citizen::where('aadhar_no', $this->aadhar_no)->first()->
-                update(['llicense_no' => Carbon::now()->year.$this->aadhar_no, -2 ]);
-                $this->generate_pdf();
+                update(['llicense_no' => Carbon::now()->year.substr($this->aadhar_no, strlen($this->aadhar_no) - 6) ]);
+                $types = Learner::where('aadhar_no', $this->aadhar_no)->pluck('type')->all();
+                $l_no = Citizen::find($this->aadhar_no)->getLLicenseNo();
+                $this->generate_pdf($types, $l_no);
             }
 
         }
@@ -90,7 +93,15 @@ class Test {
     } 
 
     /**
-     * Percentage of score is calculated and success or failure string is conditionally returned
+     * @return String
+     */
+    public function getFinalScoreString(){
+        return $this->score.'/'.$this->getCount();
+    } 
+
+    /**
+     * Percentage of score is calculated and 
+     * success or failure string is then conditionally returned
      * @return string
      */
     public function getResultView(){
@@ -119,7 +130,7 @@ class Test {
         $this->index += 1;
     }
 
-    private function generate_pdf(){
+    private function generate_pdf($types, $l_no){
 		$pdf = new FPDF();
 		$pdf->AddPage();
 		
@@ -127,22 +138,20 @@ class Test {
 		$pdf->Cell(0,15, 'Road Transport Services',0,1,'C');
         $pdf->Cell(0,15, 'e-Learner License',0,1,'C');
         $pdf->Line(50, 45, 210-50, 45);
-        $pdf->Ln(10);
 
 		$pdf->image('images/favicon.png',10,10,33,0,'');
 		$pdf->SetFont('Arial','',11);
         
         $pdf->SetTextColor(0,250,0);
         $pdf->Cell(0,10, 'Passed',0,1,'R');
-		$pdf->Ln(10);
 
         $pdf->SetTextColor(0,0,0);
-		$pdf->Cell(0,10, 'Issue Date:    '.Carbon::now()->format('d-m-Y'),0,1);
-		$pdf->Cell(0,11, 'Aadhar Number:   '.$this->aadhar_no,0,1);	
-		$pdf->Cell(0,11, 'Name:   '.Citizen::find($this->aadhar_no)->getFullNameAttribute(),0,1);
-		
-		$pdf->Cell(0,10, 'License Number:  ', Citizen::find($this->aadhar_no)->getLLicenseNo(),0,1);
-
+		$pdf->Cell(0,10, 'Issue Date: '.Carbon::now()->format('d-m-Y'),0,1);
+		$pdf->Cell(0,11, 'Aadhar Number: '.$this->aadhar_no,0,1);	
+		$pdf->Cell(0,11, 'Name: '.Citizen::find($this->aadhar_no)->getFullNameAttribute(),0,1); 
+		$pdf->Cell(0,11, 'Vehicle category:  ', implode(', ', $types), 0,1);
+		$pdf->Cell(0,11, 'License Number: ',$l_no,0,1);
+        
 		$pdf->output();
     }
 
