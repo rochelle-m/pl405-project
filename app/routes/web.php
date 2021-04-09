@@ -48,9 +48,9 @@ Route::get('/loginmodule/login', function () {
     return view('loginmodule.login');
 });
 
-Route::get('/enteremail', function () {
-    return view('loginmodule.enteremail');
-});
+// Route::get('/enteremail', function () {
+//     return view('loginmodule.enteremail');
+// });
 
 
 
@@ -72,3 +72,15 @@ Route::post('/Vehicle_Registration/Apply/pdf', 'Apply_RegController@generate_pdf
  
 Route::post('/exam_date', 'PermanentLicenseController@apply');
 
+
+
+
+Route::get('/email', function () {
+    return view('customauth.passwords.email');
+});
+
+Route::get('/forget-password', 'ForgotPasswordController@getEmail');
+Route::post('/forget-password', 'ForgotPasswordController@postEmail');
+
+Route::get('/reset-password/{token}', 'ResetPasswordController@getPassword');
+Route::post('/reset-password', 'ResetPasswordController@updatePassword');
