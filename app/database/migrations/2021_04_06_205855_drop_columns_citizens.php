@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddLicenseNumberToCitizens extends Migration
+class DropColumnsCitizens extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,10 @@ class AddLicenseNumberToCitizens extends Migration
     public function up()
     {
         Schema::table('citizens', function (Blueprint $table) {
-            $table->string('license_number', 20)->nullable()->after('password')->default('999');
+            // $table->dropColumn('learners_license_number');
+            $table->dropColumn('license_number');
         });
+        
     }
 
     /**
@@ -25,8 +27,6 @@ class AddLicenseNumberToCitizens extends Migration
      */
     public function down()
     {
-        Schema::table('citizens', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

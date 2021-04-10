@@ -28,8 +28,8 @@
     <div class="col-lg-12 well form-container">
       <h1 class="title">Application For Permanent License</h1>
       <div class="row">
-        <form method="post" action="upload/" id="form">
-         
+        <form method="post" action="/exam_date" id="form">
+          @csrf
           <div class="col-sm-12">
             <div class="row">
               <div class="form-group">

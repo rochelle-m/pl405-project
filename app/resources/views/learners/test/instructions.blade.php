@@ -21,8 +21,8 @@ rel="stylesheet"
 
 @section('content')
 <div class="container">
-    <div class="body">
-      <div class="col-lg-12 well form-container">
+    <div class="body" >
+      <div class="col-lg-12 well form-container" >
         <h1 class="title">Test Instructions</h1>
         <div class="row">
             <ul class="instructions">
@@ -46,16 +46,22 @@ rel="stylesheet"
                   After you finish the test, your percentage and result will be displayed
               </li>
               <p>
-                  All the best {{$fname ?? ''}} {{ $lname ?? ''}}
+                  All the best {{$name ?? ''}}
               </p>
             </ul>
         </div>
         <div class="/learners/test">
-          <form method="post" action="/learners/test">
-          @csrf
-          <input name="name" value="{{$fname ?? ''}} {{ $lname ?? ''}}" hidden></input>
-          <input name="aadhar_no" value="{{$aadhar_no ?? ''}}" hidden></input>
-          <input name="token" value="{{$token ?? ''}}" hidden></input>
+          @if (!isset($aadhar_no))
+            <form method="get" action="/learners/test">
+              @csrf      
+          @else
+            <form method="post" action="/learners/test">  
+              @csrf
+            <input name="name" value="{{$fname ?? ''}} {{ $lname ?? ''}}" hidden></input>
+            <input name="aadhar_no" value="{{$aadhar_no ?? ''}}" hidden></input>
+            <input name="token" value="{{$token ?? ''}}" hidden></input>
+          @endif
+
           <input
             type="submit"
             name="submit"

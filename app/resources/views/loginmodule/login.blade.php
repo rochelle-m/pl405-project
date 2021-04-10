@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
  <html>
   <link
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
@@ -22,7 +22,7 @@
     <div class="col-lg-12 well form-container">
       <h1 class="title">Log in</h1>
       <div class="row">
-        <form method="post" action="upload/" id="form">
+        <form method="post" action="/home" id="form">
           @csrf
           <div class="col-sm-12">
               <div class="row">
@@ -57,7 +57,7 @@
 
            
               <a class="forgotpassword" 
-                href="">
+                href="/email">
                   Forgot password?
               </a>
               <br>
@@ -69,7 +69,12 @@
                   name="Login"
                   value="Log in"
                   id="submitbtn"
+                 onclick="login(this);"
                 />
+              </div>
+
+              <div>
+                <h1>{{$msg1 ?? ''}}</h1>
               </div>
 
           </div>
@@ -78,10 +83,7 @@
     </div>
   </div>
 </div>
-
-<script src="aadhar_helper.js"></script>
 <script type="text/javascript" src="{{ asset('scripts/checkbox_validations.js') }}"></script>
-<script type="text/javascript" src="{{ asset('scripts/aadhar_helper.js') }}"></script>
 </body>
 </html>
  

@@ -1,44 +1,62 @@
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    color: white;
 }
 
+.home {
+    display: grid;
+    grid-template-columns: 16% 84%;
+    grid-template-areas:
+    'sidebar header header header header header'
+    'sidebar main main main main main'
+    'sidebar footer footer footer footer footer'
+}
 .sidenav {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
+    background: rgb(22, 24, 29);
+    padding: 20px 2px;
+    min-width: 16vh;
+    min-height: 100vh;
+    grid-row-start: 1;
+    grid-area: sidebar;
+    grid-row-end: 3;
 }
 
-.sidenav a, dl {
-    padding: 6px 8px 6px 16px;
+.sidenav a,
+dl,
+a {
+    padding: 6px 8px 6px 12px;
     text-decoration: none;
-    font-size: 0.8em;
-    color: #aeaeae;
+    color: white;
+    transition: 0.2s linear;
+    font-size: 1.4vw;
     display: block;
-}
-
-dd {
-    font-size: 1.2em;
-    margin-left: 0em;
-}
-
-dl{
-    padding: 0px 8px 0px 16px;
 }
 
 .sidenav a:hover {
     color: #f1f1f1;
+    background-color: rgb(76, 77, 82);
 }
 
-.main {
-    margin-left: 160px;
-    font-size: 28px;
-    padding: 0px 10px;
+dd {
+    font-size: 1.1em;
+    margin-left: 0em;
+}
+
+dl {
+    padding: 0px 8px 0px 12px;
+}
+
+main {
+    grid-area: main;
+}
+
+main img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;  
 }
 
 @media screen and (max-height: 450px) {
@@ -49,33 +67,37 @@ dl{
         font-size: 18px;
     }
 }
-.header {
-    margin-left: 152px;
-    margin-top: -9px;
-    font-size: 20px;
-    height: 80px;
-    text-align: center;
 
-    background: #111;
-    color: #c3c3c3;
-    border-style: solid;
-    border-color: #c3c3c3;
+header {
+    font-size: 1.5vw;
+    height: 80px;
+    position: relative;
+    width: 100%;
+    grid-area: header;
+    text-align: center;
+    background: rgb(22, 24, 29);
 }
 
-.footer {
-    margin-left: 152px;
-    font-size: 10px;
-    padding: 7px;
+header h2 {
+    margin: 0;
+    padding: 20px 0 !important;
+}
+
+footer {
+    padding: 1vw 0;
     text-align: center;
-    background: #111;
-    color: #c3c3c3;
-    border-style: solid;
-    border-color: #c3c3c3;
+    grid-area: footer;
+    background: rgb(22, 24, 29);
+}
+
+footer h2 {
+    font-weight: 500;
+    font-size: 1.2vw;
 }
 
 #submit {
-    background-color: #111;
     color: white;
+    background: rgb(22, 24, 29);
     padding: 15px 32px;
     text-align: center;
     display: inline-block;

@@ -5,38 +5,62 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Questions;
 use App\Learner;
+use App\Test;
+use Session;
 use DB;
+use Lang;
 
 class QuestionController extends Controller
 {
     public function get_questions(Request $request){
-        $questions = $questions = DB::table('questions')->
-          select('id', 'question', 'option1','option2','option3','option4', 'correct')->
-          where('level', 'E')->inRandomOrder()->limit(20)->
-          get()->all();
-        return view('learners.test.question', ["questions"=> $questions, "index" => 0]);
-    }
-
-    public function post_questions(Request $request){
-        
-        $types = Learner::where('aadhar_no', $request->aadhar_no)->pluck('type')->all();;   
       
-        $questions = DB::table('questions')->
-          select('id', 'question', 'option1','option2','option3','option4', 'correct')->
-          where('level', 'D')->inRandomOrder()->limit(20)->
-          whereIn('category', explode (', ',implode(", ",$types)))->get()->all();
-       
-        return view('learners.test.question', 
-          ["details" => $request->all(), "questions"=> $questions, "index" => 0]);
+      $request->session()->forget('test');
+      $request->session()->save();
+      $test = Test::createMockTest();
+
+      $request->session()->put('test', $test);
+      $request->session()->save();
+
+      return view('learners.test.question', ["questions"=> $test->getQuestions(), 'test' => $test]);
     }
 
-    public function next(Request $request){
-        if(isset($request['next'])){
-           
-        }
-        if(isset($request['skip'])){
+    public function post_questions(Request $request){ 
 
+      $test = Session::get('test');
+      if($test != null){
+        
+        $test->incrementIndex();
+        
+        if(isset($request['next'])){
+          $test->updateScore($request['id'], $request['answer']);
         }
+        
+        if(isset($request['finish'])){
+          $test->updateScore($request['id'], $request['answer']);
+          $test->setFinish();
+          
+          $view = $test->getResultView();
+          
+          $score = $test->getScore().'/'.$test->getCount();
+          
+          $request->session()->forget('test');
+          $request->session()->save();
+          
+          return view('learners.'.$view, ['msg1' => Lang::get('response.'.$view.'.msg1').$score]);
+        }
+        return view('learners.test.question', 
+          ["details" => $request->all(), "questions"=> $test->getQuestions()]);
+      }
+
+        $types = Learner::where('aadhar_no', $request->aadhar_no)->pluck('type')->all();
+        array_push($types,"ALL");   
+
+        $test = Test::createRealTest($request->aadhar_no, $types);
+        $request->session()->put('test', $test);
+        $request->session()->save();
+
+        return view('learners.test.question', 
+          ["details" => $request->all(), "questions"=> $test->getQuestions(), 'test' => $test]);
     }
     
 }

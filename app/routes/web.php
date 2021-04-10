@@ -25,9 +25,9 @@ Route::get('/learners/renew', function () {
     return view('learners.renew');
 }); 
 
-Route::post('/learners/register/upload', 'PagesController@register'); 
+Route::post('/learners/register/upload', 'CitizenController@gate'); 
 
-Route::post('/learners/register/upload/status', 'PagesController@status'); 
+Route::post('/learners/register/upload/status', 'CitizenController@register'); 
 
 Route::get('/learners/payment', function () {
     return view('learners.payment');
@@ -37,8 +37,8 @@ Route::get('/learners/test/auth', function () {
     return view('learners.test.auth');
 }); 
 
-Route::post('/learners/test/instructions', 'PagesController@index'); 
-Route::get('/learners/test/instructions', 'PagesController@get'); 
+Route::post('/learners/test/instructions', 'PagesController@final'); 
+Route::get('/learners/test/instructions', 'PagesController@mock'); 
 
 Route::post('/learners/test', 'QuestionController@post_questions'); 
 
@@ -48,12 +48,44 @@ Route::get('/loginmodule/login', function () {
     return view('loginmodule.login');
 });
 
+// Route::get('/enteremail', function () {
+//     return view('loginmodule.enteremail');
+// });
+
+
+
 Route::get('/permanent_licence/permanent_license', function () {
     return view('permanent_licence.permanent_license');
 });
 Route::get('/Vehicle_Registration/Apply', function () {
     return view('Vehicle_Registration.Apply');
 });
+
+Route::get('/Vehicle_Registration/Apply/pdf', function () {
+    return view('Vehicle_Registration.Apply.pdf');
+});
+ 
+Route::post('/home',"CitizenController@login");
+
+
 Route::post('/Vehicle_Registration/Apply/pdf', 'Apply_RegController@generate_pdf');
+<<<<<<< HEAD
 Route::post('/Vehicle_Registration/Apply/status', 'Apply_RegController@generate_status');
  
+=======
+ 
+Route::post('/exam_date', 'PermanentLicenseController@apply');
+
+
+
+
+Route::get('/email', function () {
+    return view('customauth.passwords.email');
+});
+
+Route::get('/forget-password', 'ForgotPasswordController@getEmail');
+Route::post('/forget-password', 'ForgotPasswordController@postEmail');
+
+Route::get('/reset-password/{token}', 'ResetPasswordController@getPassword');
+Route::post('/reset-password', 'ResetPasswordController@updatePassword');
+>>>>>>> 5fcc52471395566207f71e94121e02b933db765e

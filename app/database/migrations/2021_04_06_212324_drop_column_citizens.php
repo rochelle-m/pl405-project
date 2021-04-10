@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPhotoToCitizens extends Migration
+class DropColumnCitizens extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddPhotoToCitizens extends Migration
     public function up()
     {
         Schema::table('citizens', function (Blueprint $table) {
-            $table->binary('photo')->nullable()->after('password');
-            $table->binary('signature')->nullable()->after('pincode');
+            $table->dropColumn('l_license_no');
         });
     }
 
@@ -26,8 +25,6 @@ class AddPhotoToCitizens extends Migration
      */
     public function down()
     {
-        Schema::table('citizens', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }
