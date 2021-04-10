@@ -30,7 +30,7 @@ class PermanentLicenseController extends Controller
 				        'vehicle_type' => $request['type'],
 				    ]);
 
-			   		return view('permanent_license.exam_date');
+			   		return view('permanent_licence.exam_date');
 	      		}
 
 

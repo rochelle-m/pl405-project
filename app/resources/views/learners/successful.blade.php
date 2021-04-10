@@ -2,6 +2,7 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
      <link href="{{asset('css/success.css')}}" rel="stylesheet">
+     <link href="{{asset('css/learners.css')}}" rel="stylesheet">
   </head>
      
     <body>
@@ -11,7 +12,7 @@
       </div>
         <h1>{{$msg1 ?? 'Successful'}}</h1> 
         <p><br/>{{$msg2 ?? ''}}</p>
-        <button> <a href="/home">Back to home</a></button>
+        <button id="submitbtn"> <a href="/">Back to home</a></button>
       </div>
     </body>
 </html>
