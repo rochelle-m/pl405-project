@@ -13,19 +13,19 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('question');
-            $table->string('img');
-            $table->string('option1', 45);
-            $table->string('option2', 45);
-            $table->string('option3', 45);
-            $table->string('option4', 45);
-            $table->string('category', 20);
-            $table->integer('correct',1);
-            $table->string('level', 2);
-            $table->timestamps();
-        });
+        // Schema::create('questions', function (Blueprint $table) {
+        //     $table->integer('id')->primary();
+        //     $table->string('question');
+        //     $table->string('img');
+        //     $table->string('option1', 45);
+        //     $table->string('option2', 45);
+        //     $table->string('option3', 45);
+        //     $table->string('option4', 45);
+        //     $table->string('category', 20);
+        //     $table->integer('correct',1);
+        //     $table->string('level', 2);
+        //     $table->timestamps();
+        // });
     }
 
     /**

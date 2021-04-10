@@ -50,8 +50,8 @@ class Test {
     public static function createMockTest() {
         $instance = new self();
         $instance->questions = DB::table('questions')->
-        select('id', 'img', 'question', 'option1','option2','option3','option4')->
-        where('level', 'E')->inRandomOrder()->limit(20)->
+        select('id', 'img', 'question', 'option1','option2','option3','option4')
+        ->where('level', 'E')->inRandomOrder()->limit(20)->
         get()->all();
         return $instance;
     }
@@ -73,10 +73,14 @@ class Test {
             Learner::where('aadhar_no', $this->aadhar_no)->
             update(['issue_date' => Carbon::now()->format('Y-m-d'), 'status' => $result]);
 
+            $date = Carbon::now()->year;
+            $aadhar_end = substr($this->aadhar_no, strlen($this->aadhar_no) - 6);
+            
             if(!strcmp($result, 'Passed')){  
                 Citizen::where('aadhar_no', $this->aadhar_no)->first()->
-                update(['llicense_no' => Carbon::now()->year.substr($this->aadhar_no, strlen($this->aadhar_no) - 6) ]);
-                $types = Learner::where('aadhar_no', $this->aadhar_no)->pluck('type')->all();
+                update(['llicense_no' => $date.$aadhar_end]);
+                $types = Learner::where('aadhar_no', $this->aadhar_no)
+                ->pluck('type')->all();
                 $l_no = Citizen::find($this->aadhar_no)->getLLicenseNo();
                 $this->generate_pdf($types, $l_no);
             }
