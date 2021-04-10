@@ -13,8 +13,6 @@
   href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
   rel="stylesheet"
   />
-
-  <!-- <link rel="stylesheet" href="{{ asset('css/learners.css') }}"> -->
 </head>
 <body>
 

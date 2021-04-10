@@ -1,0 +1,40 @@
+
+
+	import java.util.concurrent.TimeUnit;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.firefox.FirefoxDriver;
+	import org.openqa.selenium.support.ui.Select;
+	public class Selenium {
+		
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+			System.setProperty("webdriver.gecko.driver","C:\\geckodriver-v0.29.0-win64\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(360, TimeUnit.SECONDS);
+		driver.get("http://127.0.0.1:8000");
+		
+		
+		
+		driver.findElement(By.xpath("//*[text()='Vehicle Registration']")).click();
+		driver.findElement(By.name("aadhar_no")).sendKeys("123456789021");
+		driver.findElement(By.name("fname")).sendKeys("Mera Nam Joker");
+		driver.findElement(By.name("mob")).sendKeys("7030527684");
+		driver.findElement(By.name("email")).sendKeys("mca.2020@unigoa.ac.in");
+		driver.findElement(By.name("Chassis")).sendKeys("283745619800726388");
+		driver.findElement(By.name("Engine Number")).sendKeys("MGHP90234yog");
+		driver.findElement(By.name("Model")).sendKeys("SUV");
+		driver.findElement(By.name("Company")).sendKeys("TATA");
+		driver.findElement(By.name("Color")).sendKeys("black");
+	
+		driver.findElement(By.name("Fuel_type")).sendKeys("Petrol");
+		driver.findElement(By.name("Dealer_Name")).sendKeys("Chandu Khan");
+		driver.findElement(By.name("Dealer_City")).sendKeys("Ahamadnagar");
+		
+		driver.findElement(By.xpath("//*[text()='Apply']")).click();
+		driver.findElement(By.xpath("//*[text()='PDF Create']")).click();
+		driver.findElement(By.name("Apply")).click();
+		driver.findElement(By.name("PDF")).click();
+		}
+	}
