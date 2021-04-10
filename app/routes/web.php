@@ -55,4 +55,5 @@ Route::get('/Vehicle_Registration/Apply', function () {
     return view('Vehicle_Registration.Apply');
 });
 Route::post('/Vehicle_Registration/Apply/pdf', 'Apply_RegController@generate_pdf');
+Route::post('/Vehicle_Registration/Apply/status', 'Apply_RegController@generate_status');
  
