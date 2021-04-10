@@ -48,11 +48,6 @@ Route::get('/loginmodule/login', function () {
     return view('loginmodule.login');
 });
 
-// Route::get('/enteremail', function () {
-//     return view('loginmodule.enteremail');
-// });
-
-
 
 Route::get('/permanent_licence/permanent_license', function () {
     return view('permanent_licence.permanent_license');
