@@ -26,7 +26,7 @@
       <div class="row">
 	  
         <br>
-        <form  method="POST" id="form" action="Apply/pdf">
+        <form  method="POST" id="form" >
          
           @csrf
           <div class="col-sm-12">
@@ -230,8 +230,8 @@
 
             <p class="form-group" id="warning"></p>
           <div class="text-center">
-            <INPUT type="submit" value="Apply" name=button1id="applybtn";>
-<INPUT type="submit" value="PDF Create" name=button2  id="applybtn";>
+  <INPUT type="submit" value="Apply" name="Apply"  formaction={{url('/Vehicle_Registration/Apply/status')}}>
+<INPUT type="submit" value="PDF" name="PDF"  formaction={{url('/Vehicle_Registration/Apply/pdf')}} >
             <!--div class="text-center">
               <input
                 type="submit"

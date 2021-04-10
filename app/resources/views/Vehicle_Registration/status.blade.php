@@ -60,5 +60,5 @@
 	  <?php echo $pwd ?>
 	  <div class="row">
 	  
-	  
+	</html>  
    
