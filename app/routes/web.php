@@ -59,15 +59,19 @@ Route::get('/Vehicle_Registration/Apply', function () {
 Route::get('/Vehicle_Registration/Apply/pdf', function () {
     return view('Vehicle_Registration.Apply.pdf');
 });
+
+Route::get('/Insurance/applyInsurance', function () {
+    return view('Insurance.applyInsurance');
+});
  
 Route::post('/home',"CitizenController@login");
 
 
 Route::post('/Vehicle_Registration/Apply/pdf', 'Apply_RegController@generate_pdf');
-<<<<<<< HEAD
+
 Route::post('/Vehicle_Registration/Apply/status', 'Apply_RegController@generate_status');
  
-=======
+
  
 Route::post('/exam_date', 'PermanentLicenseController@apply');
 
@@ -83,4 +87,4 @@ Route::post('/forget-password', 'ForgotPasswordController@postEmail');
 
 Route::get('/reset-password/{token}', 'ResetPasswordController@getPassword');
 Route::post('/reset-password', 'ResetPasswordController@updatePassword');
->>>>>>> 5fcc52471395566207f71e94121e02b933db765e
+

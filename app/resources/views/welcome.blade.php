@@ -24,6 +24,9 @@
     
            <a href="Vehicle_Registration/Apply">Vehicle Registration</a>
             {{-- <a href="permanent_license">Apply Driving License</a> --}}
+
+
+            <a href="Insurance/applyInsurance">Apply Insurance</a>
     
             <!-- <a href="#status">Application Status</a> -->
             <a href="#resources">Study Material</a>
