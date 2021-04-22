@@ -13,15 +13,15 @@ class PermanentLicenseController extends Controller
     public function apply(Request $request)
     {
 
-    	 dd($request);
+    	
 
 	    	$i_aadhar_no = $request['aadhar_no'];
 	    	$i_license_no = $request['ll_no'];
 	    	$exists = Citizen::where('aadhar_no', $i_aadhar_no)->exists();
 	    	if($exists){
 	    		$license_no = DB::table('citizens')->
-	      			select('license_no')->
-	      			where('aadhar_no', $i_aadhar_no);
+	      			where('aadhar_no', $i_aadhar_no)->value('llicense_no');
+
 
 	      		if($i_license_no == $license_no){
 	      			permanent_license::create([
@@ -30,7 +30,7 @@ class PermanentLicenseController extends Controller
 				        'vehicle_type' => $request['type'],
 				    ]);
 
-			   		return view('permanent_license.exam_date');
+			   		return view('permanent_licence.exam_date');
 	      		}
 
 

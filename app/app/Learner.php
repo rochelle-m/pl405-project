@@ -13,4 +13,8 @@ class Learner extends Model
     'status' ,
     'issue_date',
     'type' ];
+
+    public function getType(){
+        return $this->type;
+    }
 }

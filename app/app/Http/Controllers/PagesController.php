@@ -21,15 +21,16 @@ class PagesController extends Controller
         $request->session()->forget('test');
         $request->session()->save();
         
-        $aadhar_no = str_replace(' ', '', $request['aadhar_no']);
+        $aadhar_no = Citizen::getTrimmedAadharNo($request['aadhar_no']);
         $hashedPassword = Citizen::find($aadhar_no)->password;
+
         if (!Hash::check($request['password'], $hashedPassword)) {
             return view('learners.failed', ['msg1' => 'Oops! Wrong password',
             'msg2' => 'Please check your credentials']);
         }
         
-        $instructor  = Instructor::find($request['token']);
-        if ($instructor == null) {
+        $instructorExists  = Instructor::checkIfExists($request['token']);
+        if (!$instructorExists) {
             return view('learners.failed', ['msg1' => 'Unauthorized',
             'msg2' => 'Something went wrong']);
         }  

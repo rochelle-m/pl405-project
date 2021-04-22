@@ -14,12 +14,16 @@ class CreatePermanentLicenseTable extends Migration
     public function up()
     {
         Schema::create('permanent_license', function (Blueprint $table) {
-            $table->string('aadhar_no',12);
-            $table->foreign('aadhar_no')->references('aadhar_no')->on('citizens');
+            $table->string('aadhar_no', 12);
             $table->string('license_no',30);
             $table->string('vehicle_type',30);
             $table->timestamps();
         });
+
+        // Schema::table('permanent_license', function($table) {
+        //     $table->foreign('aadhar_no')->references('aadhar_no')->on('citizens');
+
+        // });
     }
 
     /**

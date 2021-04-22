@@ -28,7 +28,7 @@
                 <input type="text" value={{$index + 1}}  name="index" hidden>
             
                 @if (isset($questions[$index]->img))
-                    <img src={{$questions[$index]->img ?? ''}}  alt="sign" style="width:20%;">
+                    <img src={{$questions[$index]->img ?? ''}}  alt="sign" style="width:16%;">
                 @endif
 
                 <li><input type="radio" name="answer" value="1">{{$questions[$index]->option1}}</li>
