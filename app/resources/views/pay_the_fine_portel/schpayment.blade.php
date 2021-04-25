@@ -40,11 +40,11 @@
 <form action="payment" method="get">
 <select name="bank" id="txt">
 <option value="">Select Your bank</option>
- <option value="">Select Your bank</option>
- <option value="">Select Your bank</option>
- <option value="">Select Your bank</option>
- <option value="">Select Your bank</option>
- <option value="">Select Your bank</option>
+ <option value="">SBI</option>
+ <option value="">HDFC</option>
+ <option value="">ICIC</option>
+ <option value="">yes bank</option>
+ <option value="">City bank</option>
 </select>
 <input type="submit" name="ok" id="btn" value="Proceed">
 </form>
