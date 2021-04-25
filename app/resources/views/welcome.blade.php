@@ -31,6 +31,7 @@
                 <dd><a href="Insurance/applyInsurance">Apply</a></dd>
                 <!-- <dd><a href="">Renew</a></dd> -->
             </dl>
+			    <a href="pay_the_fine_portel/pay_the_fine">Pay Fine</a>
     
             <!-- <a href="#status">Application Status</a> -->
             <a href="#resources">Study Material</a>

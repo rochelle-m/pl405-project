@@ -64,6 +64,30 @@ Route::get('/Insurance/applyInsurance', function () {
     return view('Insurance.applyInsurance');
 });
  
+ Route::get('/pay_the_fine_portel/pay_the_fine', function () {
+    return view('pay_the_fine_portel.pay_the_fine');
+});
+
+ Route::get('/pay_the_fine_portel/dashboard', function () {
+    return view('pay_the_fine_portel.dashboard');
+});
+  
+  Route::get('/pay_the_fine_portel/pay', function () {
+    return view('pay_the_fine_portel.pay');
+});
+
+  Route::get('/pay_the_fine_portel/process', function () {
+    return view('pay_the_fine_portel.process');
+});
+
+  Route::get('/pay_the_fine_portel/schpayment', function () {
+    return view('pay_the_fine_portel.schpayment');
+});
+
+  Route::get('/pay_the_fine_portel/payment', function () {
+    return view('pay_the_fine_portel.payment');
+});
+ 
 Route::post('/home',"CitizenController@login");
 
 
