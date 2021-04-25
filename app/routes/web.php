@@ -88,6 +88,14 @@ Route::get('/Insurance/applyInsurance', function () {
     return view('pay_the_fine_portel.payment');
 });
  
+   Route::get('/pay_the_fine_portel/cancel', function () {
+    return view('pay_the_fine_portel.cancel');
+});
+
+   Route::get('/pay_the_fine_portel/complete', function () {
+    return view('pay_the_fine_portel.complete');
+});
+ 
 Route::post('/home',"CitizenController@login");
 
 

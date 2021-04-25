@@ -25,7 +25,7 @@
 <div class="section">
 <h5> Card Details </h1>
 		<br>
-<form action="" method="get">
+<form action="complete" method="get">
 		<input type="text" name="ch" id="txt" placeholder="Card Holder" required>
 		<br>
 		<br>
@@ -71,7 +71,7 @@
 		<input type="submit" name="btnpro" id="btn" value="Pay Now">
 	</form>
 	</br>
-	<a href="cancel.php"><input type="submit"id="btn" value="Cancel"></a><br>
+	<a href="cancel"><input type="submit"id="btn" value="Cancel"></a><br>
 	<?php
 	echo "Confirm Your Payment of Rs.","500"," By clicking The Button Pay Now<br>";
 	?>
