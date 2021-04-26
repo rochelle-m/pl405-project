@@ -14,7 +14,11 @@ use App\URL;
 
 class Test {
     private $score = 0;
-    private $questions; /** @var array */
+
+    /** 
+     * @var array 
+     * */
+    private $questions; 
     private $aadhar_no; 
     private $index = 0;
     private $finish = false;
@@ -120,7 +124,8 @@ class Test {
 
     /**
      * answer is checked and score is changed accordingly
-     * @param $id, $answer
+     * @param $id
+     * @param $answer
      * @return string
      */
     public function updateScore($id, $answer){
