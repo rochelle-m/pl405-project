@@ -108,7 +108,7 @@ Route::post('/Vehicle_Registration/Apply/status', 'Apply_RegController@generate_
 Route::post('/exam_date', 'PermanentLicenseController@apply');
 
 
-
+Route::get('/send/email', 'PagesController@email'); 
 
 Route::get('/email', function () {
     return view('customauth.passwords.email');

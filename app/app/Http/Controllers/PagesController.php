@@ -43,4 +43,8 @@ class PagesController extends Controller
             "name"=> $name]);
     }
     
+
+    public function email ($email, $name) {
+        Mail::to($email)->send(new SendMailable($name));
+    }
 }
