@@ -465,6 +465,10 @@ mark,
   background-color: #fcf8e3;
 }
 
+.navbar {
+  background-color: #333;
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -2676,15 +2680,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  color: white;
+  border-color: #ffec41;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
+  color: #333;
+  background-color: #ffec41;
 }
 
 .btn-primary:focus,
@@ -3293,12 +3295,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #3490dc;
+  color: #ffec41;
   text-decoration: none;
 }
 
 .btn-link:hover {
-  color: #1d68a7;
+  color: #ffec41;
   text-decoration: underline;
 }
 
@@ -4976,8 +4978,9 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #333;
   background-clip: border-box;
+  color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
