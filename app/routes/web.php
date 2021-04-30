@@ -63,6 +63,16 @@ Route::get('/Vehicle_Registration/Apply/pdf', function () {
 Route::get('/Insurance/applyInsurance', function () {
     return view('Insurance.applyInsurance');
 });
+
+Route::get('/pay', function () {
+    return view('stripe');
+});
+
+Route::get('stripe', 'StripeController@stripe');
+Route::post('payment', 'StripeController@payStripe');
+
+// Route::post('pay', '');
+
  
  Route::get('/pay_the_fine_portel/pay_the_fine', function () {
     return view('pay_the_fine_portel.pay_the_fine');

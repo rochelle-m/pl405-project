@@ -22,7 +22,7 @@
     <div class="col-lg-12 well form-container">
       <h1 class="title">Apply Insurance</h1>
       <div class="row">
-        <form method="post" action="" id="form">
+        <form method="get" action="/pay" id="form">
           @csrf
           <div class="col-sm-12">
               <div class="row">
@@ -39,6 +39,22 @@
                     pattern="{12}"
                     onchange="checkValidation(this.value)"
                     oninput="checkAadhar(this.value)"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label>Vehicle Number</label>
+                  
+                  <input
+                    type="text"
+                    id="vehiclenumber"
+                    name="vehicle_no"
+                    placeholder="Enter your vehicle number here eg: GA10J1234"
+                    class="form-control"
+                    required=""
+                    
+                   
                   />
                 </div>
               </div>
@@ -66,18 +82,12 @@
               />
             </div>
 
-
-              <!-- <div>
-                <h1>{{$msg1 ?? ''}}</h1>
-              </div>
- -->
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-<script type="text/javascript" src="{{ asset('scripts/checkbox_validations.js') }}"></script>\
 <script type="text/javascript" src="{{ asset('scripts/aadhar_helper.js') }}"></script>
 </body>
 </html>
