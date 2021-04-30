@@ -64,14 +64,14 @@ Route::get('/Insurance/applyInsurance', function () {
     return view('Insurance.applyInsurance');
 });
 
-Route::get('/pay', function () {
-    return view('stripe');
-});
+// Route::get('/pay', function () {
+//     return view('stripe');
+// });
 
 Route::get('stripe', 'StripeController@stripe');
 Route::post('payment', 'StripeController@payStripe');
 
-// Route::post('pay', '');
+Route::post('pay', 'insuranceController@payinsurance');
 
  
  Route::get('/pay_the_fine_portel/pay_the_fine', function () {

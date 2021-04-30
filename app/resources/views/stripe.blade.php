@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="text-center">
-                <h2>Pay for Event</h2>
+                <h2>Pay Insurance</h2>
                 <br>
             </div>
         </div>

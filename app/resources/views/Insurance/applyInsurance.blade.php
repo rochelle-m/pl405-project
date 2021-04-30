@@ -22,7 +22,7 @@
     <div class="col-lg-12 well form-container">
       <h1 class="title">Apply Insurance</h1>
       <div class="row">
-        <form method="get" action="/pay" id="form">
+        <form method="post" action="/pay" id="form">
           @csrf
           <div class="col-sm-12">
               <div class="row">
@@ -62,7 +62,7 @@
               <div class="row">
                 <div class="form-group">
                   <label>Vehicle Type</label>
-                  <select name="vehcile" id="vehicle">
+                  <select name="type" id="type">
                     <option value="LMV">LMV</option>
                     <option value="MCWG">MCWG</option>
                     <option value="MCWOG">MCWOG</option>
