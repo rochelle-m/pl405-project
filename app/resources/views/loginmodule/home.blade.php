@@ -19,10 +19,15 @@
                 </dd>
             </dl>
         
-            <a href="permanent_licence/permanent_license">Apply Driving License</a>
+            <dl>
+                <dt>Driving License</dt>
+                <a href="permanent_licence/permanent_license">Apply</a>
+                <a href="/license/lost">Lost license</a>
+            </dl>
+
+            
     
             <a href="Vehicle_Registration/Apply">Vehicle Registration</a>
-            {{-- <a href="permanent_license">Apply Driving License</a> --}}
 
             <dl>
                 <dt>Vehicle Insurance</dt>
@@ -38,8 +43,12 @@
     
         
             <header>
-                <h2>{{$title ?? ''}}</h2>
+                <h2>{{$title ?? 'Road Transport Services'}}</h2>
+                <span style="color: white; float: right; margin-top: -50px; padding: 6px;cursor: pointer">
+                    Get notified
+                </span>
             </header>
+
             <main>
                 <img src="images/vehicle.jpg" alt="">
             </main>

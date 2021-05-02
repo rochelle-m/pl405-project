@@ -78,6 +78,10 @@ Route::post('pay', 'insuranceController@payinsurance');
     return view('pay_the_fine_portel.pay_the_fine');
 });
 
+Route::get('license/lost', function () {
+    return view('permanent_licence.lost');
+});
+
  Route::get('/pay_the_fine_portel/dashboard', function () {
     return view('pay_the_fine_portel.dashboard');
 });
