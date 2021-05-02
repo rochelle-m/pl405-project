@@ -15,7 +15,7 @@
                             <label for="aadhar" class="col-md-4 col-form-label text-md-right">{{ __('Aadhar Card') }}</label>
 
                             <div class="col-md-6">
-                                <input id="aadhar" type="text" class="form-control @error('email') is-invalid @enderror" name="aadhar" value="{{ old('aadhar') }}" required autocomplete="aadhar" autofocus>
+                                <input id="aadhar" type="text" class="form-control @error('email') is-invalid @enderror" name="aadhar_no" value="{{ old('aadhar') }}" required autocomplete="aadhar" autofocus>
 
                                 @error('aadhar')
                                     <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                             <label for="contact" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="contact" type="text" class="form-control @error('email') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
+                                <input id="contact" type="text" class="form-control @error('email') is-invalid @enderror" name="contact_no" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
 
                                 @error('contact')
                                     <span class="invalid-feedback" role="alert">
