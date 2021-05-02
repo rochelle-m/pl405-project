@@ -43,4 +43,21 @@ class LostLicense extends TestCase
 
         $response->assertSee('Application For Duplicate License');
     }
+
+    /**
+     * Test the route returns view
+     *
+     * @return void
+     */
+    public function testViewSave()
+    {
+        $response = $this->post('/license/lost/save', [        
+            'reason' => 'stolen',
+            'license_no' => '2021001',
+            'aadhar_no' => '111122224455',
+            'fir' => 'FX11224'
+        ]);
+
+        $response->assertStatus(200);;
+    }
 }

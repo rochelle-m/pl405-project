@@ -36,7 +36,7 @@
                         license.
                     </section>
                 </aside>
-                <form action="post">
+                <form action="/license/lost/save" method="POST">
                     <h1 class="title">Application For Duplicate License</h1>
 
                     @csrf
@@ -70,7 +70,7 @@
 
                     <div class="row">
                         <div class="form-group">
-                            <label>What happended to your license? (Tick all that apply)<span class="required">* </span></label>
+                            <label>What happended to your license? (Tick one that applies)<span class="required">* </span></label>
                             
                             <div>
                                 <input
