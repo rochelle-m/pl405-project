@@ -9,7 +9,7 @@ use Tests\TestCase;
 class LostLicense extends TestCase
 {
     /**
-     * A basic unit test example.
+     * Test the route returns 200
      *
      * @return void
      */
@@ -17,13 +17,30 @@ class LostLicense extends TestCase
     {
         $response = $this->get('/license/lost');
 
-        $response->assertStatus(200)->assertViewIs('permanent_licence.lost');;
+        $response->assertStatus(200);
     }
 
+    /**
+     * Test the route returns view
+     *
+     * @return void
+     */
     public function testView()
     {
         $response = $this->get('/license/lost');
 
-        $response->assertViewIs('permanent_licence.lost');;
+        $response->assertViewIs('permanent_licence.lost');
+    }
+
+    /**
+     * Test the route returns view
+     *
+     * @return void
+     */
+    public function testSee()
+    {
+        $response = $this->get('/license/lost');
+
+        $response->assertSee('Application For Duplicate License');
     }
 }
