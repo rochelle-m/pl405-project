@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group">
+                        <div class="form-group" >
                             <label>What happended to your license? (Tick one that applies)<span class="required">* </span></label>
                             
                             <div>
@@ -79,6 +79,7 @@
                                     value="lost"
                                     id="lost"
                                     required
+                                    onchange="watch(this)"
                                 />
                                 <label for="lost">Lost</label>
                             </div>
@@ -89,6 +90,7 @@
                                     name="reason"
                                     value="stolen"
                                     id="stolen"
+                                    onchange="watch(this)"
                                 />
                                 <label for="stolen">Stolen</label>
                             </div>
@@ -99,6 +101,7 @@
                                     name="reason"
                                     value="damaged"
                                     id="damaged"
+                                    onchange="watch(this)"
                                 />
                                 <label for="damaged">Damaged</label>
                             </div>
@@ -112,6 +115,7 @@
                                 <input
                                 type="text"
                                 name="fir"
+                                id="fir"
                                 class="form-control"
                                 />
                             </div>
@@ -129,5 +133,6 @@
                 </form>
             </div>
         </div>
+        <script type="text/javascript" src="{{ asset('scripts/reason.js') }}"></script>
     </div>
 @endsection

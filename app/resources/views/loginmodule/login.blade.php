@@ -1,5 +1,10 @@
-  <!DOCTYPE html>
- <html>
+@extends('app')
+
+@section('title')
+    Login
+@endsection
+
+@section('imports')
   <link
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
   rel="stylesheet"
@@ -13,9 +18,10 @@
   rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="{{ asset('css/learners.css') }}"> 
+<link rel="stylesheet" href="{{ asset('css/learners.css') }}"> 
+@endsection
   
-  <body>
+@section('content')
  
  <div class="container">
   <div class="body">
@@ -84,7 +90,6 @@
   </div>
 </div>
 <script type="text/javascript" src="{{ asset('scripts/checkbox_validations.js') }}"></script>
-</body>
-</html>
+@endsection
  
 
