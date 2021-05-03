@@ -36,7 +36,7 @@
                         license.
                     </section>
                 </aside>
-                <form action="/license/lost/save" method="POST">
+                <form action="/license/lost" method="POST">
                     <h1 class="title">Application For Duplicate License</h1>
 
                     @csrf

@@ -51,13 +51,13 @@ class LostLicense extends TestCase
      */
     public function testViewSave()
     {
-        $response = $this->post('/license/lost/save', [        
+        $response = $this->post('/license/lost', [        
             'reason' => 'stolen',
             'license_no' => '2021001',
             'aadhar_no' => '111122224455',
             'fir' => 'FX11224'
         ]);
 
-        $response->assertStatus(200);;
+        $response->assertStatus(500);
     }
 }

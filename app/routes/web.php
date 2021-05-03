@@ -113,7 +113,7 @@ Route::get('license/lost', function () {
 Route::post('/home',"CitizenController@login");
 
 
-Route::post('/license/lost/save', 'LostController@manage');
+Route::post('/license/lost', 'LostController@manage');
 
 
 Route::post('/Vehicle_Registration/Apply/pdf', 'Apply_RegController@generate_pdf');
