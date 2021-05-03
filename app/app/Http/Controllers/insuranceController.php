@@ -15,7 +15,7 @@ class insuranceController extends Controller
 
     	
 
-	    	$a_no = $request['aadhar_no'];
+	    	$a_no = Citizen::getTrimmedAadharNo($request['aadhar_no']);
 	    	$v_no = $request['vehicle_no'];
 	    	$exists = Citizen::where('aadhar_no', $a_no)->exists();
 	    	if($exists){
