@@ -43,7 +43,6 @@ class Citizen extends Model
 
     public static function new($data) {
         
-   
         $file1 = $data['photo'];
         $file2 = $data['signature'];
 
