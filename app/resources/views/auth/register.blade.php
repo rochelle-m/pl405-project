@@ -12,12 +12,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="aadhar" class="col-md-4 col-form-label text-md-right">{{ __('Aadhar Card') }}</label>
+                            <label for="aadhar_no" class="col-md-4 col-form-label text-md-right">{{ __('Aadhar Card') }}</label>
 
                             <div class="col-md-6">
-                                <input id="aadhar" type="text" class="form-control @error('email') is-invalid @enderror" name="aadhar_no" value="{{ old('aadhar') }}" required autocomplete="aadhar" autofocus>
+                                <input id="aadhar_no" type="text" class="form-control @error('aadhar_no') is-invalid @enderror" name="aadhar_no" value="{{ old('aadhar_no') }}" required autocomplete="aadhar_no" autofocus>
 
-                                @error('aadhar')
+                                @error('aadhar_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -55,12 +55,12 @@
 
                         
                         <div class="form-group row">
-                            <label for="contact" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
+                            <label for="contact_no" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="contact" type="text" class="form-control @error('email') is-invalid @enderror" name="contact_no" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
+                                <input id="contact_no" type="text" class="form-control @error('contact_no') is-invalid @enderror" name="contact_no" value="{{ old('contact_no') }}" required autocomplete="contact_no" autofocus>
 
-                                @error('contact')
+                                @error('contact_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -72,7 +72,7 @@
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="date" class="form-control @error('email') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
+                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
 
                                 @error('dob')
                                     <span class="invalid-feedback" role="alert">
