@@ -8,15 +8,16 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" id="form">
                         @csrf
 
                         <div class="form-group row">
                             <label for="aadhar_no" class="col-md-4 col-form-label text-md-right">{{ __('Aadhar Card') }}</label>
 
                             <div class="col-md-6">
-                                <input id="aadhar_no" type="text" class="form-control @error('aadhar_no') is-invalid @enderror" name="aadhar_no" value="{{ old('aadhar_no') }}" required autocomplete="aadhar_no" autofocus>
-
+                                <input id="aadhar_no" type="text" class="form-control @error('aadhar_no') is-invalid @enderror" name="aadhar_no" value="{{ old('aadhar_no') }}" required autocomplete="aadhar_no" autofocus onblur="fetchDetails(this)">
+                                <span>  <small class="info">ⓘ Your details will be auto-filled based on your Aadhar Card number</small> </span>
+                                
                                 @error('aadhar_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -29,7 +30,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus readonly>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -69,10 +70,26 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                </textarea>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
+                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" 
+                                readonly autofocus>
 
                                 @error('dob')
                                     <span class="invalid-feedback" role="alert">
@@ -118,3 +135,29 @@
     </div>
 </div>
 @endsection
+
+<script>
+    async function fetchDetails(element) {
+        const aadhar_no = element.value
+        const res = await fetch(`http://localhost:8001/find/${aadhar_no}`)
+        const person = await res.json()
+
+        const { 
+            first_name, 
+            middle_name, 
+            last_name, 
+            pincode, 
+            address, 
+            dob, 
+            contact, 
+            email
+        } = person
+
+        const form = document.getElementById("form")
+        form.name.value = first_name + " " + middle_name + " " + last_name
+        form.address.value = address + " " + pincode
+        form.dob.valueAsDate = new Date(dob)
+        form.contact_no.value =  contact || ""
+        form.email.value = email || ""
+    }
+</script>
