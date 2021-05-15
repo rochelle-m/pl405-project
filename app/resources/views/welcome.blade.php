@@ -6,6 +6,8 @@
 
         <title>Road Transport Services</title>
 
+        <link rel="icon" type="image/png" href='https://www.pngitem.com/pimgs/m/4-42154_road-road-icon-png-transparent-png.png'>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
