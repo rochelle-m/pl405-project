@@ -10949,3 +10949,11 @@ a.text-dark:focus {
   }
 }
 
+
+.card {
+  transition: .3 linear;
+}
+
+.nav-link:hover {
+  transform: scale(1.01); 
+}
