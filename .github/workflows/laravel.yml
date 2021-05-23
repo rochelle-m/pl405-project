@@ -1,9 +1,5 @@
 name: Laravel
 
-on:
-  push:
-    branches: [ v2 ]
-
 jobs:
   laravel-tests:
 
