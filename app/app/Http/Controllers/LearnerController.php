@@ -13,16 +13,7 @@ class LearnerController extends Controller
         if(!Learner::where('aadhar_no', '=', Auth::user()->aadhar_no)->exists()){
             return view('learners.apply');
         }
-        return $this->getResponseString();
-    }
-
-    private function getResponseString(){
-        $types = Learner::where('aadhar_no', '=', Auth::user()->aadhar_no)->pluck("status", "type");
-        $str = "<p>Already applied for learner's license</p><hr/>";
-        foreach ($types as $key => $val) {
-            $str = $str."<p>".__('license.'.$key).": ".$val."</p>";
-        }
-        return $str;
+        return redirect('/home');
     }
 
     private function isGearedAndNonGeared($arr){
