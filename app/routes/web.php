@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/learners/apply', 'LearnerController@index');
 Route::post('/learners/apply', 'LearnerController@apply');
+
+Route::get('/mock-tests', 'MockTestController@index');

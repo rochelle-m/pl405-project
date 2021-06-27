@@ -25,7 +25,7 @@
                                 <p class="card-text">Applicable for only 18+</p>
                               </a>
                             @else
-                              <h5>Status</h5>
+                              <h5 class="text-success">Status</h5>
                               @foreach ($learner_types as $key => $item)
                                   <p> <strong>{{ __('license.'.$key) }}</strong>: {{ $item }}</p>
                               @endforeach
@@ -46,7 +46,7 @@
                         <div class="card border-light mb-3 bg-light text-dark" style="max-width: 10rem;">
                           <div class="card-header">Learner's License / Permit</div>
                             <div class="card-body">
-                              <a href="#" class="nav-link">
+                              <a href="/mock-tests" class="nav-link">
                                 <h5 class="card-title">Mock Test</h5>
                                 <p class="card-text">Take a mock test for practice</p>
                               </a>
